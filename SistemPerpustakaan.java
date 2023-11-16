@@ -5,6 +5,8 @@ public class SistemPerpustakaan {
 
         boolean meminjam=false, valid=false;
         String login, username, password;
+        int maxBuku = 100, maxAtributBuku = 7, jumlahBuku=0;
+        String[][] perpustakaan = new String[maxBuku][maxAtributBuku];
         System.out.println(" __________________________________");
         System.out.println("|__________________________________|");
         System.out.println("|                                  |");
@@ -524,8 +526,58 @@ public class SistemPerpustakaan {
                             
             
             case 7:
-                System.out.println("Penambahan Buku");
-                break;
+            System.out.println("\n______________________________");
+            System.out.println("______________________________");
+            System.out.println("        Selamat Datang        ");
+            System.out.println("        di Tambah Buku        ");
+            System.out.println("------------------------------");
+            System.out.println("     Sistem Perpustakaan      ");
+            System.out.println("     Pangeran Diponegoro      ");
+            System.out.println("______________________________");
+            String tambahLagi;
+            while (true) {
+                if (jumlahBuku < maxBuku) {
+
+                    System.out.print("Judul          : ");
+                    perpustakaan[jumlahBuku][0] = input.nextLine();
+                    System.out.print("Penulis        : ");
+                    perpustakaan[jumlahBuku][1] = input.nextLine();
+                    System.out.print("Penerbit       : ");
+                    perpustakaan[jumlahBuku][2] = input.nextLine();
+                    System.out.print("Tahun Terbit   : ");
+                    perpustakaan[jumlahBuku][3] = input.nextLine();
+                    System.out.print("ISBN           : ");
+                    perpustakaan[jumlahBuku][4] = input.nextLine();
+                    System.out.print("Jumlah Halaman : ");
+                    perpustakaan[jumlahBuku][5] = input.nextLine();
+                    System.out.print("Genre Buku     : ");
+                    perpustakaan[jumlahBuku][6] = input.nextLine();
+
+                    System.out.println("\n============================");
+                    System.out.println(" Buku berhasil ditambahkan!");
+                    System.out.println("============================");
+                    jumlahBuku++;
+    
+
+                    System.out.print("\nApakah Anda ingin menambahkan buku lagi (y/n)? ");
+                    tambahLagi = input.nextLine();
+                    if (tambahLagi.equalsIgnoreCase("n")) {
+                        break;
+
+                    }
+                } else {
+                    System.out.println("\n==================================================");
+                    System.out.println(" Perpustakaan penuh. Tidak dapat menambahkan buku.");
+                    System.out.println("==================================================");
+                }
+            }
+            System.out.println("\n ______________________________________");
+            System.out.println("|                                      |");
+            System.out.println("|  Tekan ENTER untuk kembali ke Menu   |");
+            System.out.println("|______________________________________|");
+      
+            break;
+
             case 8:
                 System.out.println("\n_______________________________");
                 System.out.println("_______________________________");
