@@ -98,78 +98,72 @@ public class SistemPerpustakaan {
                 System.out.print("\nMasukkan Kategori Buku: ");
                 kategori= input.nextInt();
                 
-                switch (kategori){
-                case 1:
-                System.out.println("\n ______________ ");
-                System.out.println("|    Novel     |");
-                System.out.println("|______________|");
-                System.out.println("|  1. Buku A   |");
-                System.out.println("|  2. Buku B   |");
-                System.out.println("|  3. Buku C   |");
-                System.out.println("|  4. Buku D   |");
-                System.out.println("|  5. Buku E   |");
-                System.out.println("|______________|");
-                break;
+                if (jumlahBuku > 0) {
 
-                case 2:
-                System.out.println("\n ______________ ");
-                System.out.println("|    Komik     |");
-                System.out.println("|______________|");
-                System.out.println("|  1. Buku F   |");
-                System.out.println("|  2. Buku G   |");
-                System.out.println("|  3. Buku H   |");
-                System.out.println("|  4. Buku I   |");
-                System.out.println("|  5. Buku J   |");
-                System.out.println("|______________|");
-                break;
+                    for (i = 0; i < jumlahBuku; i++) {
+                        switch (kategori) {
+                            case 1:
+                            if (perpustakaan[i][6].equalsIgnoreCase("novel")) {
+                            System.out.println("_______________________________");
+                            System.out.println(" Judul          : " + perpustakaan[i][0]);
+                            System.out.println(" Penulis        : " + perpustakaan[i][1]);
+                            System.out.println(" Penerbit       : " + perpustakaan[i][2]);
+                            System.out.println(" Tahun Terbit   : " + perpustakaan[i][3]);
+                            System.out.println(" ISBN           : " + perpustakaan[i][4]);
+                            System.out.println(" Jumlah Halaman : " + perpustakaan[i][5]);
+                            System.out.println("_______________________________");
+                            input.nextLine();
+                            } 
+                            break;
+                            
+                        
+                            case 2:
+                            if (perpustakaan[i][6].equalsIgnoreCase("komik")) {
+                            System.out.println("_______________________________");
+                            System.out.println(" Judul          : " + perpustakaan[i][0]);
+                            System.out.println(" Penulis        : " + perpustakaan[i][1]);
+                            System.out.println(" Penerbit       : " + perpustakaan[i][2]);
+                            System.out.println(" Tahun Terbit   : " + perpustakaan[i][3]);
+                            System.out.println(" ISBN           : " + perpustakaan[i][4]);
+                            System.out.println(" Jumlah Halaman : " + perpustakaan[i][5]);
+                            System.out.println("_______________________________");
+                            input.nextLine();
+                            }
+                    
+                            break;
 
-                case 3:
-                System.out.println("\n ______________ ");
-                System.out.println("|    Cerpen    |");
-                System.out.println("|______________|");
-                System.out.println("|  1. Buku K   |");
-                System.out.println("|  2. Buku L   |");
-                System.out.println("|  3. Buku M   |");
-                System.out.println("|  4. Buku N   |");
-                System.out.println("|  5. Buku O   |");
-                System.out.println("|______________|");
-                break;
+                            case 3:
+                            if (perpustakaan[i][6].equalsIgnoreCase("cerpen")) {
+                            System.out.println("_______________________________");
+                            System.out.println(" Judul          : " + perpustakaan[i][0]);
+                            System.out.println(" Penulis        : " + perpustakaan[i][1]);
+                            System.out.println(" Penerbit       : " + perpustakaan[i][2]);
+                            System.out.println(" Tahun Terbit   : " + perpustakaan[i][3]);
+                            System.out.println(" ISBN           : " + perpustakaan[i][4]);
+                            System.out.println(" Jumlah Halaman : " + perpustakaan[i][5]);
+                            System.out.println("_______________________________");
+                            input.nextLine();
+                            }
+                            break;
 
-                case 4:
-                System.out.println("\n ______________");
-                System.out.println("|    Sejarah   |");
-                System.out.println("|______________|");
-                System.out.println("|  1. Buku P   |");
-                System.out.println("|  2. Buku Q   |");
-                System.out.println("|  3. Buku R   |");
-                System.out.println("|  4. Buku S   |");
-                System.out.println("|  5. Buku T   |");
-                System.out.println("|______________|");
-                break;
-
-                case 5:
-                System.out.println("\n ____________________");
-                System.out.println("|  Ilmu Pengetahuan  |");
-                System.out.println("|____________________|");
-                System.out.println("|     1. Buku U      |");
-                System.out.println("|     2. Buku V      |");
-                System.out.println("|     3. Buku W      |");
-                System.out.println("|     4. Buku X      |");
-                System.out.println("|     5. Buku Y      |");
-                System.out.println("|     6. Buku Z      |");
-                System.out.println("|____________________|");
-                break;
-              
-                default: 
-                System.out.println("kategori tidak tersedia");
-                break;
+                            
+                            default:
+                            System.out.println("Kategori Tidak Tersedia");
+                            break;
+                        }
+                        
+                    }
+                } else {
+                    System.out.println("\n=================================");
+                    System.out.println(" Belum ada buku yang ditambahkan ");
+                    System.out.println("=================================");
                 }
 
                 System.out.println("\n ______________________________________");
                 System.out.println("|                                      |");
                 System.out.println("|  Tekan ENTER untuk kembali ke Menu   |");
                 System.out.println("|______________________________________|");
-                input.nextLine();
+              
                 break;
     
             case 2:
