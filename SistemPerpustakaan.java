@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Date;
 public class SistemPerpustakaan {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
@@ -256,92 +257,69 @@ public class SistemPerpustakaan {
                 break;
                 
             case 3:
-                String tanggalPeminjaman, tanggalPengembalian, namaPenulis, nama;
-                int banyakBuku;
+            String tanggalPeminjaman, tanggalPengembalian, namaPenulis, nama;
+            int banyakBuku;
 
-                System.out.println("\n______________________________");
-                System.out.println("______________________________");
-                System.out.println("        Selamat Datang        ");
-                System.out.println("      di Peminjaman Buku      ");
-                System.out.println("------------------------------");
-                System.out.println("      Sistem Perpustakaan     ");
-                System.out.println("      Pangeran Diponegoro     ");
-                System.out.println("______________________________");
-                System.out.print("\nBerapa banyak buku yang akan Anda pinjam? ");
-                banyakBuku = input.nextInt();
-                System.out.print("\nMasukkan Nama Anda            : ");
-                nama = input.nextLine();
-                input.nextLine();
+            System.out.println("\n______________________________");
+            System.out.println("______________________________");
+            System.out.println("        Selamat Datang        ");
+            System.out.println("      di Peminjaman Buku      ");
+            System.out.println("------------------------------");
+            System.out.println("      Sistem Perpustakaan     ");
+            System.out.println("      Pangeran Diponegoro     ");
+            System.out.println("______________________________");
+            System.out.print("\nBerapa banyak buku yang akan Anda pinjam? ");
+            banyakBuku = input.nextInt();
+            input.nextLine();
+            System.out.print("\nMasukkan Nama Anda            : ");
+            String namaPeminjam = input.nextLine();
 
-                for (i = 0; i < banyakBuku; i++){
-                System.out.print("\nMasukkan Nama Buku            : ");
+
+            for (i = 0; i < banyakBuku; i++) {
+                System.out.print("Masukkan Nama Buku            : ");
                 namaBuku = input.nextLine();
                 System.out.print("Masukkan Nama Penulis         : ");
                 namaPenulis = input.nextLine();
-                if(namaBuku.equalsIgnoreCase("Buku A") && namaPenulis.equalsIgnoreCase("Penulis A")){
-                    meminjam=true;
-                    valid=true;
-                } else if(namaBuku.equalsIgnoreCase("Buku B") && namaPenulis.equalsIgnoreCase("Penulis B")){
-                    meminjam=true;
-                    valid=true;
-                } else if(namaBuku.equalsIgnoreCase("Buku C") && namaPenulis.equalsIgnoreCase("Penulis C")){
-                    meminjam=true;
-                    valid=true;
-                } else if(namaBuku.equalsIgnoreCase("Buku D") && namaPenulis.equalsIgnoreCase("Penulis D")){
-                    meminjam=true;
-                    valid=true;
-                } else if(namaBuku.equalsIgnoreCase("Buku E") && namaPenulis.equalsIgnoreCase("Penulis E")){
-                    meminjam=true;
-                    valid=true;
-                } else if(namaBuku.equalsIgnoreCase("Buku F") && namaPenulis.equalsIgnoreCase("Penulis F")){
-                    meminjam=true;
-                    valid=true;
-                } else if(namaBuku.equalsIgnoreCase("Buku G") && namaPenulis.equalsIgnoreCase("Penulis G")){
-                    meminjam=true;
-                    valid=true;
-                } else if(namaBuku.equalsIgnoreCase("Buku H") && namaPenulis.equalsIgnoreCase("Penulis H")){
-                    meminjam=true;
-                    valid=true;
-                } else{
+                if (namaBuku.equalsIgnoreCase(perpustakaan[i][0]) && namaPenulis.equalsIgnoreCase(perpustakaan[i][1])){
+                    meminjam = true;
+                    valid = true;
+                } else {
                     System.out.println("Buku tidak tersedia");
-                    meminjam=false;
-                    valid=false;
+                    meminjam = false;
+                    valid = false;
 
-                i++;
+                    i++;
                 }
-                if(meminjam){
-                    meminjam=true;
-                    valid=true;
-                    System.out.print("masukkan tanggal peminjaman   : ");
-                    tanggalPeminjaman = input.nextLine();
-                    System.out.print("masukkan tanggal pengembalian : ");
-                    tanggalPengembalian = input.nextLine();
+                if (meminjam) {
+                    meminjam = true;
+                    valid = true;
+                    Date tanggalPinjam = new Date();
 
                     System.out.println("\n______________________________________________");
-                    System.out.println("\n           Buku pinjaman ke-" + (i + 1)          );
-                    System.out.println(" Nama Peminjam              : " + nama);
+                    System.out.println("\n           Buku pinjaman ke-" + (i + 1));
+                    System.out.println(" Nama Peminjam              : " + namaPeminjam);
                     System.out.println(" Nama Buku                  : " + namaBuku);
                     System.out.println(" Nama Penulis               : " + namaPenulis);
-                    System.out.println(" Tanggal Peminjaman         : " + tanggalPeminjaman);
-                    System.out.println(" Tenggat Pengembalian Buku  : " + tanggalPengembalian);
+                    System.out.println(" Tanggal Peminjaman         : " + tanggalPinjam);
+
                     System.out.println("______________________________________________");
-                
-                          }
-                
-                         }
-                    System.out.println("\n====================================");
-                    System.out.println("         Terimakasih telah          ");                 
-                    System.out.println("   menggunakan Form Peminjamanan    ");     
-                    System.out.println("------------------------------------");
-                    System.out.println("        Sistem Perpustakaan         ");
-                    System.out.println("        Pangeran Diponegoro         ");
-                    System.out.println("====================================");     
-               
-                    System.out.println("\n ______________________________________");
-                    System.out.println("|                                      |");
-                    System.out.println("|  Tekan ENTER untuk kembali ke Menu   |");
-                    System.out.println("|______________________________________|");
-                    break;
+
+                }
+
+            }
+            System.out.println("\n====================================");
+            System.out.println("         Terimakasih telah          ");
+            System.out.println("   menggunakan Form Peminjamanan    ");
+            System.out.println("------------------------------------");
+            System.out.println("        Sistem Perpustakaan         ");
+            System.out.println("        Pangeran Diponegoro         ");
+            System.out.println("====================================");
+
+            System.out.println("\n ______________________________________");
+            System.out.println("|                                      |");
+            System.out.println("|  Tekan ENTER untuk kembali ke Menu   |");
+            System.out.println("|______________________________________|");
+            break;
         
             case 4:
                     System.out.println("\n______________________________");
