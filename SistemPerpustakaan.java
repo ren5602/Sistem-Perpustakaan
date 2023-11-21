@@ -102,56 +102,37 @@ public class SistemPerpustakaan {
 
                     if (jumlahBuku > 0) {
 
-                        for (i = 0; i < jumlahBuku; i++) {
+                        for ( i = 0; i < jumlahBuku; i++) {
                             switch (kategori) {
                                 case 1:
-                                    if (perpustakaan[i][6].equalsIgnoreCase("novel")) {
-                                        System.out.println("_______________________________");
-                                        System.out.println(" Judul          : " + perpustakaan[i][0]);
-                                        System.out.println(" Penulis        : " + perpustakaan[i][1]);
-                                        System.out.println(" Penerbit       : " + perpustakaan[i][2]);
-                                        System.out.println(" Tahun Terbit   : " + perpustakaan[i][3]);
-                                        System.out.println(" ISBN           : " + perpustakaan[i][4]);
-                                        System.out.println(" Jumlah Halaman : " + perpustakaan[i][5]);
-                                        System.out.println("_______________________________");
-                                        input.nextLine();
-                                    }
-                                    break;
-
+                                if (perpustakaan[i][6].equalsIgnoreCase("novel")) {
+                                System.out.println(i+1 + ". " + perpustakaan[i][0]);
+                                
+                                } 
+                                break;
+                                
+                            
                                 case 2:
-                                    if (perpustakaan[i][6].equalsIgnoreCase("komik")) {
-                                        System.out.println("_______________________________");
-                                        System.out.println(" Judul          : " + perpustakaan[i][0]);
-                                        System.out.println(" Penulis        : " + perpustakaan[i][1]);
-                                        System.out.println(" Penerbit       : " + perpustakaan[i][2]);
-                                        System.out.println(" Tahun Terbit   : " + perpustakaan[i][3]);
-                                        System.out.println(" ISBN           : " + perpustakaan[i][4]);
-                                        System.out.println(" Jumlah Halaman : " + perpustakaan[i][5]);
-                                        System.out.println("_______________________________");
-                                        input.nextLine();
-                                    }
-
-                                    break;
+                                if (perpustakaan[i][6].equalsIgnoreCase("komik")) {
+                                System.out.println(i+1 + ". " + perpustakaan[i][0]);
+                                input.nextLine();
+                                }
+                        
+                                break;
 
                                 case 3:
-                                    if (perpustakaan[i][6].equalsIgnoreCase("cerpen")) {
-                                        System.out.println("_______________________________");
-                                        System.out.println(" Judul          : " + perpustakaan[i][0]);
-                                        System.out.println(" Penulis        : " + perpustakaan[i][1]);
-                                        System.out.println(" Penerbit       : " + perpustakaan[i][2]);
-                                        System.out.println(" Tahun Terbit   : " + perpustakaan[i][3]);
-                                        System.out.println(" ISBN           : " + perpustakaan[i][4]);
-                                        System.out.println(" Jumlah Halaman : " + perpustakaan[i][5]);
-                                        System.out.println("_______________________________");
-                                        input.nextLine();
-                                    }
-                                    break;
+                                if (perpustakaan[i][6].equalsIgnoreCase("cerpen")) {
+                                System.out.println(i+1 + ". " + perpustakaan[i][0]);
+                                input.nextLine();
+                                }
+                                break;
 
+                                
                                 default:
-                                    System.out.println("Kategori Tidak Tersedia");
-                                    break;
+                                System.out.println("Kategori Tidak Tersedia");
+                                break;
                             }
-
+                            
                         }
                     } else {
                         System.out.println("\n=================================");
@@ -163,7 +144,7 @@ public class SistemPerpustakaan {
                     System.out.println("|                                      |");
                     System.out.println("|  Tekan ENTER untuk kembali ke Menu   |");
                     System.out.println("|______________________________________|");
-
+                  input.nextLine();
                     break;
 
                 case 2:
