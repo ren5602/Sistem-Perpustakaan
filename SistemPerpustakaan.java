@@ -2,44 +2,122 @@ import java.util.Scanner;
 import java.util.Date;
 
 public class SistemPerpustakaan {
+    // Batas Maksimal Percobaan
+    public static int maxPercobaan=0;
+    public static void SelectAdmin(){
+        Scanner input = new Scanner(System.in);
+        String username, password;
+        String[][] login_admin = {{"admin1","pass1"},{"admin2","pass2"},{"admin3","pass3"}};
+
+        System.out.println("---------- ADMIN ----------");
+        System.out.print("Silahkan Masukkan Username Terlebih dauhulu : ");
+        username = input.nextLine();
+        System.out.print("Silahkan Masukkan Password : ");
+        password = input.nextLine();
+        int count = 0; // "count" dimulai dari 0 untuk mengecek apakah username dan password benar
+        for(int i = 0; i < login_admin.length; i++){
+            if(username.equals(login_admin[i][0]) && password.equals(login_admin[i][1])){ // jika username dan password benar maka "count" akan bernilai 1
+                count = 1;
+            }
+        }
+        if(count == 1){
+            System.out.print("Login anda telah berhasil");
+            // masukkan konten untuk mengakses fungsi admin
+            menuAdmin();
+        }else{
+            if (maxPercobaan == 2){
+                System.out.println("Batas Percobaan Login Telah Tercapai");
+                main(null); // kembali ke fungsi utama dengan cara memanggil fungsi utama
+            }else{
+                maxPercobaan++;
+                System.out.println("Username atau Password yang anda masukkan salah");
+                SelectAdmin(); // kembali ke fungsi SelectAdmin untuk mencapai batas percobaan
+            }
+        }
+    }
+    public static void SelectUser(){
+        Scanner input = new Scanner(System.in);
+        String username, password;
+        String[][] login_user = {{"user1","pass1"},{"user2","pass2"},{"user3","pass3"}};
+
+        System.out.println("---------- User ----------");
+        System.out.print("Silahkan Masukkan Username Terlebih dauhulu : ");
+        username = input.nextLine();
+        System.out.print("Silahkan Masukkan Password : ");
+        password = input.nextLine();
+        int count = 0; // "count" dimulai dari 0 untuk mengecek apakah username dan password benar
+        for(int i = 0; i < login_user.length; i++){
+            if(username.equals(login_user[i][0]) && password.equals(login_user[i][1])){ // jika username dan password benar maka "count" akan bernilai 1
+                count = 1;
+            }
+        }
+
+        if(count == 1){
+            System.out.print("Login anda telah berhasil");
+            // masukkan konten untuk mengakses fungsi admin
+        }else{
+            if (maxPercobaan == 2){
+                System.out.println("Batas Percobaan Login Telah Tercapai");
+                main(null); // kembali ke fungsi utama dengan cara memanggil fungsi utama
+            }else{
+                maxPercobaan++;
+                System.out.println("Username atau Password yang anda masukkan salah");
+                SelectUser(); // kembali ke fungsi SelectAdmin untuk mencapai batas percobaan
+            }
+        }
+    }
+    
     public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        String login;
+        // Tampilan awal ketika program dijalankan
+        System.out.println("__________________________________");
+        System.out.println("");
+        System.out.println("          Selamat Datang          ");
+        System.out.println("      Di Sistem Perpustakaan      ");
+        System.out.println("        Pangeran Diponegoro       ");
+        System.out.println("");
+        System.out.println("__________________________________");
+
+        // Pilih otoritas antara admin dan user
+        System.out.println("Pilih Otoritas anda :");
+        System.out.println("1. Admin");
+        System.out.println("2. User");
+        System.out.println("3. Exit");
+        System.out.print("Masukkan Pilihan anda : ");
+        // input untuk pilihan antara admin atau user
+        login = input.nextLine();
+
+        // logika ketika memilih 1 sebagai admin
+        if(login.equals("1")){
+            SelectAdmin();            
+        // logika ketika memilih 2 sebagai user
+        }else if(login.equals("2")){
+            SelectUser();
+        }else if(login.equals("3")){
+            System.exit(0);
+        }
+
+    }
+    public static void menuAdmin(){
         Scanner input = new Scanner(System.in);
 
         boolean meminjam = false, valid = false;
-        String login, username, password;
         int maxBuku = 100, maxAtributBuku = 7, jumlahBuku = 0;
         String[][] perpustakaan = new String[maxBuku][maxAtributBuku];
-        System.out.println(" __________________________________");
-        System.out.println("|__________________________________|");
-        System.out.println("|                                  |");
-        System.out.println("|          Selamat Datang          |");
-        System.out.println("|      Di Sistem Perpustakaan      |");
-        System.out.println("|        Pangeran Diponegoro       |");
-        System.out.println("|__________________________________|");
-        System.out.println("|__________________________________|");
-
-        int i = 0;
-        while (i < 3) {
-            System.out.print("\nSilahkan Masukkan Username Terlebih dauhulu : ");
-            username = input.nextLine();
-            System.out.print("Silahkan Masukkan Password                  : ");
-            password = input.nextLine();
-            if (username.equals("admin") && password.equals("1234")) {
-                System.out.println("\n _______________________________________________");
-                System.out.println("|                 Login Berhasil!               |");
-                System.out.println("|Silahkan tekan ENTER untuk melanjutkan ke Menu |");
-                System.out.println("|_______________________________________________|");
-                break;
-            }
-            System.out.println("Login Gagal, silahkan coba lagi");
-            i++;
-            if (i == 3) {
-                System.exit(0);
-
-            }
+        String[][] dataBuku = {{"Harry Poter","J.K Rowling", "gramedia", "2015", "2312421", "223", "1000","novel"}};
+        for(int j = 0; j < dataBuku.length; j++){
+            perpustakaan[j][0] = dataBuku[j][0];
+            perpustakaan[j][1] = dataBuku[j][1];
+            perpustakaan[j][2] = dataBuku[j][2];
+            perpustakaan[j][3] = dataBuku[j][3];
+            perpustakaan[j][4] = dataBuku[j][4];
+            perpustakaan[j][5] = dataBuku[j][5];
+            perpustakaan[j][6] = dataBuku[j][6];
 
         }
-
+        jumlahBuku = dataBuku.length;
+        int i = 0;
         boolean exitProgram = false;
         int pilihan, kategori;
         while (!exitProgram) {
@@ -106,7 +184,8 @@ public class SistemPerpustakaan {
                             switch (kategori) {
                                 case 1:
                                 if (perpustakaan[i][6].equalsIgnoreCase("novel")) {
-                                System.out.println(i+1 + ". " + perpustakaan[i][0]);
+                                    System.out.println(i+1 + ". " + perpustakaan[i][0]);
+                                
                                 
                                 } 
                                 break;
