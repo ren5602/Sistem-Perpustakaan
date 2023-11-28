@@ -1,8 +1,7 @@
 import java.util.Scanner;
 
 public class tambahBuku {
-    private static final int MAX_BUKU = 100; // Jumlah maksimal buku dalam perpustakaan
-    private static Buku[] daftarBuku = new Buku[MAX_BUKU];
+    private static final int MAX_BUKU = 100; 
     private static int jumlahBuku = 0;
 
     public static void main(String[] args) {
@@ -24,11 +23,11 @@ public class tambahBuku {
             System.out.print("Pilih menu (1/2/3): ");
 
             int pilihan = scanner.nextInt();
-            scanner.nextLine(); // Mengonsumsi newline karakter setelah input angka
+            scanner.nextLine(); 
 
             switch (pilihan) {
                 case 1:
-                    tambahBuku(scanner);
+                    tambahBuku();
                     break;
                 case 2:
                     tampilkanDaftarBuku();
@@ -42,97 +41,70 @@ public class tambahBuku {
             }
         }
     }
+    public static String[][] dataBuku = new String[10][6];
+    public static Scanner scanner = new Scanner(System.in);
 
-    private static void tambahBuku(Scanner scanner) {
+    private static void tambahBuku() {
+        for (int i = 0;jumlahBuku<MAX_BUKU;i++) {
         if (jumlahBuku < MAX_BUKU) {
             System.out.println("Masukkan informasi buku:");
 
             System.out.print("Judul: ");
-            String judul = scanner.nextLine();
+            dataBuku[i][0] = scanner.nextLine();
 
             System.out.print("Penulis: ");
-            String penulis = scanner.nextLine();
+            dataBuku[i][1] = scanner.nextLine();
 
             System.out.print("Penerbit: ");
-            String penerbit = scanner.nextLine();
+            dataBuku[i][2] = scanner.nextLine();
 
             System.out.print("Tahun Terbit: ");
-            int tahunTerbit = scanner.nextInt();
-            scanner.nextLine();
+            dataBuku[i][3] = scanner.nextLine();
 
             System.out.print("ISBN: ");
-            String isbn = scanner.nextLine();
+            dataBuku[i][4] = scanner.nextLine();
 
             System.out.print("Jumlah Halaman: ");
-            int jumlahHalaman = scanner.nextInt();
-            scanner.nextLine(); // Mengonsumsi newline karakter setelah input angka
+            dataBuku[i][5] = scanner.nextLine();
 
-            Buku buku = new Buku(judul, penulis, isbn, jumlahHalaman, penerbit, tahunTerbit);
-            daftarBuku[jumlahBuku] = buku;
-            jumlahBuku++;
+            System.out.println("Apakah anda ingin menambah data lagi ");
+            System.out.println("Ketik 1 untuk IYA");
+            System.out.println("Ketik 0 untuk TIDAK");
+            System.out.println("Pilih Salah Satu : ");
+            int Choice = scanner.nextInt();
 
+            if(Choice == 0) {
+                            i++;
+            break;}
+
+            
+
+
+        
             System.out.println("Buku berhasil ditambahkan!");
         } else {
             System.out.println("Maaf, perpustakaan penuh. Tidak dapat menambahkan buku baru.");
         }
     }
+    }
 
     private static void tampilkanDaftarBuku() {
-        if (jumlahBuku > 0) {
-            System.out.println("Daftar Buku:");
+       
 
-            for (int i = 0; i < jumlahBuku; i++) {
+            for (int i = 0; i < MAX_BUKU; i++) {
+                if (dataBuku[i][0] !=null && !dataBuku[i][0].isEmpty()) {
                 System.out.println("Buku ke-" + (i + 1));
-                System.out.println("Judul: " + daftarBuku[i].getJudul());
-                System.out.println("Penulis: " + daftarBuku[i].getPenulis());
-                System.out.println("ISBN: " + daftarBuku[i].getIsbn());
-                System.out.println("Jumlah Halaman: " + daftarBuku[i].getJumlahHalaman());
+                System.out.println("Judul: " + dataBuku[i][0]);
+                System.out.println("Penulis: " + dataBuku[i][1]);
+                System.out.println("Penerbit: " + dataBuku[i][2]);
+                System.out.println("Tahun Terbit: " + dataBuku[i][3]);
+                System.out.println("ISBN: " + dataBuku[i][4]);
+                System.out.println("Jumlah Halaman: " + dataBuku [i][5]);
                 System.out.println("------------------------------");
+                }
+                break;
             }
-        } else {
-            System.out.println("Belum ada buku dalam perpustakaan.");
-        }
+       
     }
 }
 
-class Buku {
-    private String judul;
-    private String penulis;
-    private String isbn;
-    private int jumlahHalaman;
-    private String penerbit;
-    private int tahunTerbit;
-
-    public Buku(String judul, String penulis, String isbn, int jumlahHalaman, String penerbit, int tahunTerbit) {
-        this.judul = judul;
-        this.penulis = penulis;
-        this.isbn = isbn;
-        this.jumlahHalaman = jumlahHalaman;
-        this.penerbit = penerbit;
-        this.tahunTerbit = tahunTerbit;
-    }
-
-    public String getJudul() {
-        return judul;
-    }
-
-    public String getPenulis() {
-        return penulis;
-    }
-
-    public String getIsbn() {
-        return isbn;
-    }
-
-    public int getJumlahHalaman() {
-        return jumlahHalaman;
-    }
-
-    public String getPenerbit() {
-        return penerbit;
-    }
-
-    public int getTahunTerbit() {
-        return tahunTerbit;
-    }
-}
