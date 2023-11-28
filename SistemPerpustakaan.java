@@ -340,15 +340,20 @@ public class SistemPerpustakaan {
                     System.out.print("Masukkan Judul Buku yang Dipinjam : ");
                     namaBuku = input.nextLine();
                     tanggalPengembalian = new Date();
-                    System.out.println("\n__________________________________________________");
+                    if (namaBuku.equalsIgnoreCase(perpustakaan[i][4])) {
+                        System.out.println("\n__________________________________________________");
                     System.out.println("                 Terimakasih Telah                ");
                     System.out.println("            Melakukan Pengembalian Buku           ");
                     System.out.println("==================================================");
-                    System.out.println(" Nama Peminjam                      : " + nama);
-                    System.out.println(" Nama Buku yang telah dikembalikan  : " + namaBuku);
-                    System.out.println(" Tanggal Pengembalian               : " + tanggalPengembalian);
+                    System.out.println(" Nama Peminjam                    : " + nama);
+                    System.out.println(" Judul Buku                       : " + perpustakaan[i][0]);
+                    System.out.println(" Kode Buku                        : " + perpustakaan[i][4]);
+                    System.out.println(" Tanggal Pengembalian             : " + tanggalPengembalian);
                     System.out.println("==================================================");
 
+                        
+                    }
+                
                     System.out.println("\n ______________________________________");
                     System.out.println("|                                      |");
                     System.out.println("|  Tekan ENTER untuk kembali ke Menu   |");
