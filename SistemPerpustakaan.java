@@ -237,77 +237,20 @@ public class SistemPerpustakaan {
                     System.out.println("______________________________");
                     System.out.print("\nMasukkan Nama Buku: ");
                     String namaBuku = input.nextLine();
-                    switch (namaBuku) {
-                        case "Buku A":
-                            System.out.println("\n ___________________________");
-                            System.out.println("|                           |");
-                            System.out.println("| Judul Buku      : Buku A  |");
-                            System.out.println("| Penulis         : Si A    |");
-                            System.out.println("| Jumlah Halaman  : 100     |");
-                            System.out.println("| Letak           : Rak A   |");
-                            System.out.println("| Baris           : 1       |");
-                            System.out.println("|___________________________|");
-                            break;
+                    if (namaBuku.equalsIgnoreCase(perpustakaan[i][0])){
+                        System.out.println("_______________________________");
+                            System.out.println(" Judul          : " + perpustakaan[i][0]);
+                            System.out.println(" Penulis        : " + perpustakaan[i][1]);
+                            System.out.println(" Penerbit       : " + perpustakaan[i][2]);
+                            System.out.println(" Tahun Terbit   : " + perpustakaan[i][3]);
+                            System.out.println(" ISBN           : " + perpustakaan[i][4]);
+                            System.out.println(" Jumlah Halaman : " + perpustakaan[i][5]);
+                            System.out.println("_______________________________");
 
-                        case "Buku B":
-                            System.out.println("\n ___________________________");
-                            System.out.println("|                           |");
-                            System.out.println("| Judul Buku      : Buku B  |");
-                            System.out.println("| Penulis         : Si B    |");
-                            System.out.println("| Jumlah Halaman  : 100     |");
-                            System.out.println("| Letak           : Rak A   |");
-                            System.out.println("| Baris           : 2       |");
-                            System.out.println("|___________________________|");
-                            break;
-
-                        case "Buku C":
-                            System.out.println("\n ___________________________");
-                            System.out.println("|                           |");
-                            System.out.println("| Judul Buku      : Buku C  |");
-                            System.out.println("| Penulis         : Si C    |");
-                            System.out.println("| Jumlah Halaman  : 100     |");
-                            System.out.println("| Letak           : Rak A   |");
-                            System.out.println("| Baris           : 3       |");
-                            System.out.println("|___________________________|");
-                            break;
-
-                        case "Buku D":
-                            System.out.println("\n ___________________________");
-                            System.out.println("|                           |");
-                            System.out.println("| Judul Buku      : Buku D  |");
-                            System.out.println("| Penulis         : Si D    |");
-                            System.out.println("| Jumlah Halaman  : 100     |");
-                            System.out.println("| Letak           : Rak B   |");
-                            System.out.println("| Baris           : 1       |");
-                            System.out.println("|___________________________|");
-                            break;
-
-                        case "Buku E":
-                            System.out.println("\n ___________________________");
-                            System.out.println("|                           |");
-                            System.out.println("| Judul Buku      : Buku E  |");
-                            System.out.println("| Penulis         : Si E    |");
-                            System.out.println("| Jumlah Halaman  : 100     |");
-                            System.out.println("| Letak           : Rak B   |");
-                            System.out.println("| Baris           : 2       |");
-                            System.out.println("|___________________________|");
-                            break;
-
-                        case "Buku F":
-                            System.out.println("\n ___________________________");
-                            System.out.println("|                           |");
-                            System.out.println("| Judul Buku      : Buku F  |");
-                            System.out.println("| Penulis         : Si F    |");
-                            System.out.println("| Jumlah Halaman  : 100     |");
-                            System.out.println("| Letak           : Rak B   |");
-                            System.out.println("| Baris           : 3       |");
-                            System.out.println("|___________________________|");
-                            break;
-
-                        default:
+                    }else {
                             System.out.println("\n====================================");
                             System.out.println(" buku yang Anda cari tidak tersedia ");
-                            System.out.println("====================================");
+                             System.out.println("====================================");
                     }
                     System.out.println("\n ______________________________________");
                     System.out.println("|                                      |");
@@ -316,7 +259,8 @@ public class SistemPerpustakaan {
                     break;
 
                 case 3:
-                    String tanggalPeminjaman, tanggalPengembalian, namaPenulis, nama;
+                    String namaPenulis, nama;
+                    Date tanggalPinjam, tanggalPengembalian;
                     int banyakBuku, maxPinjam = 5;
 
                     System.out.println("\n______________________________");
@@ -332,12 +276,9 @@ public class SistemPerpustakaan {
                     String namaPeminjam = input.nextLine();
 
                     for (i = 0; i < maxPinjam; i++) {
-                        System.out.print("\nMasukkan Nama Buku            : ");
+                        System.out.print("\nMasukkan Kode Buku            : ");
                         namaBuku = input.nextLine();
-                        System.out.print("Masukkan Nama Penulis         : ");
-                        namaPenulis = input.nextLine();
-                        if (namaBuku.equalsIgnoreCase(perpustakaan[i][0])
-                                && namaPenulis.equalsIgnoreCase(perpustakaan[i][1])) {
+                        if (namaBuku.equalsIgnoreCase(perpustakaan[i][4])) {
                             meminjam = true;
                             valid = true;
                         } else {
@@ -350,13 +291,13 @@ public class SistemPerpustakaan {
                         if (meminjam) {
                             meminjam = true;
                             valid = true;
-                            Date tanggalPinjam = new Date();
+                            tanggalPinjam = new Date();
 
                             System.out.println("\n______________________________________________");
                             System.out.println("\n           Buku pinjaman ke-" + (i + 1));
                             System.out.println(" Nama Peminjam              : " + namaPeminjam);
-                            System.out.println(" Nama Buku                  : " + namaBuku);
-                            System.out.println(" Nama Penulis               : " + namaPenulis);
+                            System.out.println(" Nama Buku                  : " + perpustakaan[i][0]);
+                            System.out.println(" Nama Penulis               : " + perpustakaan[i][1]);
                             System.out.println(" Tanggal Peminjaman         : " + tanggalPinjam);
 
                             System.out.println("______________________________________________");
@@ -398,8 +339,7 @@ public class SistemPerpustakaan {
                     nama = input.nextLine();
                     System.out.print("Masukkan Judul Buku yang Dipinjam : ");
                     namaBuku = input.nextLine();
-                    System.out.print("Masukkan Tanggal Pengembalian     : ");
-                    tanggalPengembalian = input.nextLine();
+                    tanggalPengembalian = new Date();
                     System.out.println("\n__________________________________________________");
                     System.out.println("                 Terimakasih Telah                ");
                     System.out.println("            Melakukan Pengembalian Buku           ");
