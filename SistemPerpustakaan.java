@@ -105,18 +105,18 @@ public class SistemPerpustakaan {
         boolean meminjam = false, valid = false;
         int maxBuku = 100, maxAtributBuku = 7, jumlahBuku = 0;
         String[][] perpustakaan = new String[maxBuku][maxAtributBuku];
-        String[][] dataBuku = {{"Harry Poter","J.K Rowling", "gramedia", "2015", "2312421", "223", "1000","novel"}};
-        for(int j = 0; j < dataBuku.length; j++){
-            perpustakaan[j][0] = dataBuku[j][0];
-            perpustakaan[j][1] = dataBuku[j][1];
-            perpustakaan[j][2] = dataBuku[j][2];
-            perpustakaan[j][3] = dataBuku[j][3];
-            perpustakaan[j][4] = dataBuku[j][4];
-            perpustakaan[j][5] = dataBuku[j][5];
-            perpustakaan[j][6] = dataBuku[j][6];
+        // String[][] dataBuku = {{"Harry Poter","J.K Rowling", "gramedia", "2015", "2312421", "223", "1000","novel"}};
+        // for(int j = 0; j < dataBuku.length; j++){
+        //     perpustakaan[j][0] = dataBuku[j][0];
+        //     perpustakaan[j][1] = dataBuku[j][1];
+        //     perpustakaan[j][2] = dataBuku[j][2];
+        //     perpustakaan[j][3] = dataBuku[j][3];
+        //     perpustakaan[j][4] = dataBuku[j][4];
+        //     perpustakaan[j][5] = dataBuku[j][5];
+        //     perpustakaan[j][6] = dataBuku[j][6];
 
-        }
-        jumlahBuku = dataBuku.length;
+        // }
+        // jumlahBuku = dataBuku.length;
         int i = 0;
         boolean exitProgram = false;
         int pilihan, kategori;
