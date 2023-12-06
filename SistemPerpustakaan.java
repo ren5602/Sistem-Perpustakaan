@@ -4,14 +4,14 @@ import java.util.Date;
 public class SistemPerpustakaan {
     static Scanner input = new Scanner(System.in);
 
-    // rek kalau semisal mau deklarasi variable terus saling berhubungan dengan fitur lain deklarasino disini yo....
+    // note: rek kalau semisal mau deklarasi variable terus saling berhubungan dengan fitur lain deklarasino disini yo.... (aziz)
     static int jumlahBuku = 0; // jumlah buku awal
     static int maxBuku = 100; // Batas Maksimal Buku
     static int maxAtributBuku = 7; // Batas Maksimal Atribut
 
-    static String nama, namaBuku;
-    static Date tanggalPinjam, tanggalPengembalian;
-    static String namaPeminjam;
+    static String nama, namaBuku; // nama buku untuk peminjaman
+    static Date tanggalPinjam, tanggalPengembalian; // tanggal peminjaman dan pengembalian
+    static String namaPeminjam; // nama peminjam
     static int banyakBuku, maxPinjam = 5;
     static boolean meminjam = false;
     static boolean valid = false;
@@ -70,7 +70,8 @@ public class SistemPerpustakaan {
             System.out.print("Login anda telah berhasil");
             System.out.println("");
 
-            // masukkan konten untuk mengakses fungsi admin
+            // masukkan konten untuk mengakses fungsi user
+            menuUser();
         }else{
             if (maxPercobaan == 2){
                 System.out.println("Batas Percobaan Login Telah Tercapai");
@@ -242,7 +243,6 @@ public class SistemPerpustakaan {
                     System.out.println("Kategori Tidak Tersedia");
                     break;
                 }
-                
             }
         } else {
             System.out.println("\n=================================");
@@ -400,6 +400,7 @@ public class SistemPerpustakaan {
             System.out.print("Genre Buku: ");
             perpustakaan[jumlahBuku][6] = input.nextLine();
             jumlahBuku++;
+
             System.out.println("Apakah anda ingin menambah data lagi (ya/tidak) ?");
             String pilih = input.nextLine();
 
@@ -440,5 +441,154 @@ public class SistemPerpustakaan {
         System.out.println("      Pangeran Diponegoro      ");
         System.out.println("_______________________________");
         System.exit(0);
+    }
+    public static void menuUser(){
+        System.out.println(" __________________________________");
+        System.out.println("|            DAFTAR MENU           |");
+        System.out.println("|        Sistem Perpustakaan       |");
+        System.out.println("|        Pangeran Diponegoro       |");
+        System.out.println("|__________________________________|");
+        System.out.println("|                                  |");
+        System.out.println("| 1. Katalog Buku                  |");
+        System.out.println("|__________________________________|");
+        System.out.println("|                                  |");
+        System.out.println("| 2. Cari Buku                     |");
+        System.out.println("|__________________________________|");
+        System.out.println("|                                  |");
+        System.out.println("| 3. Aturan Peminjaman dan         |");
+        System.out.println("|    Pembelian                     |");
+        System.out.println("|__________________________________|");
+        System.out.println("|                                  |");
+        System.out.println("| 4. Log Out                       |");
+        System.out.println("|__________________________________|");
+
+        System.out.print("\nPilih Menu : ");
+        int pilihan = input.nextInt();
+        switch (pilihan) {
+            case 1:
+                KatalogBukuUser();
+                break;
+            case 2:
+            case 3:
+                aturanPeminjamanUser();
+                break;
+            case 4:
+                LogOut();
+                break;
+        }
+    }
+    static void KatalogBukuUser(){
+        System.out.println("\n______________________________");
+        System.out.println("______________________________");
+        System.out.println("        Selamat  Datang       ");
+        System.out.println("        di Katalog Buku       ");
+        System.out.println("------------------------------");
+        System.out.println("      Sistem Perpustakaan     ");
+        System.out.println("      Pangeran Diponegoro     ");
+        System.out.println("______________________________");
+        System.out.println("\n ______________________");
+        System.out.println("|     Katalog Buku     |");
+        System.out.println("|______________________|");
+        System.out.println("| 1. Novel             |");
+        System.out.println("| 2. Komik             |");
+        System.out.println("| 3. Cerpen            |");
+        System.out.println("| 4. Sejarah           |");
+        System.out.println("| 5. Ilmu Pengetahuan  |");
+        System.out.println("| 6. Purchasable       |");
+        System.out.println("|______________________|");
+
+        System.out.print("\nMasukkan Kategori Buku: ");
+        int kategori = input.nextInt();
+        if (jumlahBuku > 0){
+            for ( int i = 0; i < jumlahBuku; i++) {
+                switch (kategori){
+                    case 1:
+                    if (perpustakaan[i][6].equalsIgnoreCase("novel")){
+                        System.out.println("-" + perpustakaan[i][0]);
+                    } 
+                    break;
+                    
+                
+                    case 2:
+                    if (perpustakaan[i][6].equalsIgnoreCase("komik")){
+                        System.out.println("-" + perpustakaan[i][0]);
+                    }
+            
+                    break;
+
+                    case 3:
+                    if (perpustakaan[i][6].equalsIgnoreCase("cerpen")) {
+                        System.out.println("-" + perpustakaan[i][0]);
+                    }
+                    break;
+
+                    case 4:
+                    if (perpustakaan[i][6].equalsIgnoreCase("sejarah")) {
+                        System.out.println("-" + perpustakaan[i][0]);
+                    }
+                    break;
+
+                    case 5:
+                    if (perpustakaan[i][6].equalsIgnoreCase("ilmu pengetahuan")) {
+                        System.out.println("-" + perpustakaan[i][0]);
+                    }
+                    break;
+
+                    case 6:
+                    if (perpustakaan[i][6].equalsIgnoreCase("purchasable")) {
+                        System.out.println("-" + perpustakaan[i][0]);
+                    }
+                    break;
+                    
+                    default:
+                    System.out.println("Kategori Tidak Tersedia");
+                    break;
+                }
+                
+            }
+        } else {
+            System.out.println("\n=================================");
+            System.out.println(" Belum ada buku yang ditambahkan ");
+            System.out.println("=================================");
+        }
+
+        System.out.println("\n ______________________________________");
+        System.out.println("|                                      |");
+        System.out.println("|  Tekan ENTER untuk kembali ke Menu   |");
+        System.out.println("|______________________________________|");
+        input.nextLine();
+        input.nextLine();
+        menuUser();
+    }
+    static void aturanPeminjamanUser(){
+        String rule1 = "1. Apabila ingin meminjam buku, harap konfirmasi kepada petugas perpustakaan.             ";
+        String rule2 = "2. Maksimal lama peminjaman buku adalah 7 hari.                                               ";
+        String rule3 = "3. Apabila waktu peminjaman dirasa kurang, dapat memperpanjang waktu dengan konfirmasi kepada petugas.";
+        String rule4 = "4. Keterlambatan pengembalian buku akan dikenakan denda dengan rincian sebagai berikut :";
+        String rule5 = "  - Untuk buku bergenre Novel denda keterlambatan yang harus dibayar Rp5000/hari";
+        String rule6 = "  - Untuk buku bergenre Komik denda keterlambatan yang harus dibayar Rp4000/hari";
+        String rule7 = "  - Untuk buku bergenre Cerpen denda keterlambatan yang harus dibayar Rp3000/hari";
+        String rule8 = "  - Untuk buku bergenre Sejarah denda keterlambatan yang harus dibayar Rp8000/hari";
+        String rule9 = "  - Untuk buku bergenre Ilmu Pengetahuan denda keterlambatan yang harus dibayar Rp10000/hari";
+        String rule10 ="5. Pembayaran denda keterlambatan dapat dibayarkan kepada petugas perpustakaan secara tunai maupun non tunai.";
+
+        System.out.println("Aturan Peminjaman Buku:");
+        System.out.println(rule1);
+        System.out.println(rule2);
+        System.out.println(rule3);
+        System.out.println(rule4);
+        System.out.println(rule5);
+        System.out.println(rule6);
+        System.out.println(rule7);
+        System.out.println(rule8);
+        System.out.println(rule9);
+        System.out.println(rule10);
+        System.out.println("\n ______________________________________");
+        System.out.println("|                                      |");
+        System.out.println("|  Tekan ENTER untuk kembali ke Menu   |");
+        System.out.println("|______________________________________|");
+        input.nextLine();
+        input.nextLine();
+        menuUser();
     }
 }
