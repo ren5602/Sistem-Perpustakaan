@@ -165,6 +165,8 @@ public class SistemPerpustakaan {
                 Peminjaman();
                 break;
             case 5:
+            pengembalianBuku();
+            break;
             case 6:
             case 7:
             case 8:
@@ -320,7 +322,7 @@ public class SistemPerpustakaan {
                 System.out.println("Buku tidak tersedia");
                 meminjam = false;
                 valid = false;
-                System.out.println(i);
+                menuAdmin();
             }
             if (meminjam) {
                 meminjam = true;
@@ -344,6 +346,56 @@ public class SistemPerpustakaan {
 
         }
     }
+
+    static void pengembalianBuku(){
+        System.out.println("\n______________________________");
+        System.out.println("______________________________");
+        System.out.println("        Selamat Datang        ");
+        System.out.println("    di Pengembalian Buku      ");
+        System.out.println("------------------------------");
+        System.out.println("      Sistem Perpustakaan     ");
+        System.out.println("      Pangeran Diponegoro     ");
+        System.out.println("______________________________");
+
+        System.out.print("\nMasukkan Nama Anda            : ");
+        input.nextLine();
+        nama = input.nextLine();
+
+        for (int i = 0; i < maxPinjam; i++) {
+            System.out.print("\nMasukkan Kode Buku            : ");
+            namaBuku = input.nextLine();
+            if (namaBuku.equalsIgnoreCase(perpustakaan[i][4])) {
+                meminjam = true;
+                valid = true;
+            } else {
+                System.out.println("Buku tidak tersedia");
+                meminjam = false;
+                valid = false;
+                menuAdmin();
+            }
+            if (meminjam) {
+                meminjam = true;
+                valid = true;
+                tanggalPengembalian = new Date();
+
+                System.out.println("\n______________________________________________");
+                System.out.println("\n           Buku pinjaman ke-" + (i + 1));
+                System.out.println(" Nama Peminjam              : " + nama);
+                System.out.println(" Nama Buku                  : " + perpustakaan[i][0]);
+                System.out.println(" Nama Penulis               : " + perpustakaan[i][1]);
+                System.out.println(" Tanggal Peminjaman         : " + tanggalPengembalian);
+                System.out.println("______________________________________________");
+                System.out.print("\nApakah Anda ingin mengembalikan buku lagi (y/n)? ");
+                String pinjamLagi = input.nextLine();
+                if (pinjamLagi.equalsIgnoreCase("n")) {
+                    menuAdmin();
+                }
+
+            }
+
+        }
+    }
+
     //fungsi penambahan buku parents
     static void PenambahanBuku(){
         while (true) {
