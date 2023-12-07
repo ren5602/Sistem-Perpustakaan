@@ -12,7 +12,7 @@ public class SistemPerpustakaan {
     static String nama, namaBuku; // nama buku untuk peminjaman
     static Date tanggalPinjam, tanggalPengembalian; // tanggal peminjaman dan pengembalian
     static String namaPeminjam; // nama peminjam
-    static int banyakBuku, maxPinjam = 5;
+    static int banyakBuku, maxPinjam = 3;
     static boolean meminjam = false;
     static boolean valid = false;
 
@@ -202,8 +202,10 @@ public class SistemPerpustakaan {
             for ( int i = 0; i < jumlahBuku; i++) {
                 switch (kategori){
                     case 1:
-                    if (perpustakaan[i][6].equalsIgnoreCase("novel")){
+                    if (perpustakaan[i][6].equalsIgnoreCase("novel")){          // Cara agar buku yang ditambahkan sesuai dengan kategori yang diinginkan atribut ke 6 adalah genre / kategori buku
                         System.out.println("-" + perpustakaan[i][0]);
+                        System.out.println("Penulis: " + perpustakaan[i][1]);
+
                     } 
                     break;
                     
@@ -211,6 +213,8 @@ public class SistemPerpustakaan {
                     case 2:
                     if (perpustakaan[i][6].equalsIgnoreCase("komik")){
                         System.out.println("-" + perpustakaan[i][0]);
+                        System.out.println("Penulis: " + perpustakaan[i][1]);
+
                     }
             
                     break;
@@ -218,6 +222,8 @@ public class SistemPerpustakaan {
                     case 3:
                     if (perpustakaan[i][6].equalsIgnoreCase("cerpen")) {
                         System.out.println("-" + perpustakaan[i][0]);
+                        System.out.println("Penulis: " + perpustakaan[i][1]);
+
                     }
                     break;
 
@@ -245,7 +251,7 @@ public class SistemPerpustakaan {
                 }
             }
         } else {
-            System.out.println("\n=================================");
+            System.out.println("\n================================="); // jika belum ada buku yang ditambahkan akan menampilkan ini
             System.out.println(" Belum ada buku yang ditambahkan ");
             System.out.println("=================================");
         }
@@ -254,7 +260,7 @@ public class SistemPerpustakaan {
         System.out.println("|                                      |");
         System.out.println("|  Tekan ENTER untuk kembali ke Menu   |");
         System.out.println("|______________________________________|");
-        input.nextLine();
+        input.nextLine(); // mengosongkan input agar dapat menjalankan fungsi menu admin
         input.nextLine();
         menuAdmin();
     }
@@ -327,7 +333,6 @@ public class SistemPerpustakaan {
                 System.out.println(" Nama Buku                  : " + perpustakaan[i][0]);
                 System.out.println(" Nama Penulis               : " + perpustakaan[i][1]);
                 System.out.println(" Tanggal Peminjaman         : " + tanggalPinjam);
-
                 System.out.println("______________________________________________");
                 System.out.print("\nApakah Anda ingin meminjam buku lagi (y/n)? ");
                 String pinjamLagi = input.nextLine();
