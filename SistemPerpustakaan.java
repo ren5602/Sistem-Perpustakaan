@@ -8,7 +8,8 @@ public class SistemPerpustakaan {
     static int jumlahBuku = 0; // jumlah buku awal
     static int maxBuku = 100; // Batas Maksimal Buku
     static int maxAtributBuku = 8; // Batas Maksimal Atribut
-    static String novel, komik, cerpen, sejarah, ilmuPengetahuan, purchasable;
+    static String novel = "Novel", komik = "Komik", cerpen = "Cerpen", sejarah = "Sejarah", ilmuPengetahuan = "Ilmu Pengetahuan", purchasable = "Purchasable";
+    static boolean[] bukuTersedia = new boolean[maxBuku];
 
     static String nama, namaBuku; // nama buku untuk peminjaman
     static Date tanggalPinjam, tanggalPengembalian; // tanggal peminjaman dan pengembalian
@@ -160,6 +161,10 @@ public class SistemPerpustakaan {
             case 9:
             case 10:
                 LogOut();
+                break;
+            default:
+                System.out.println("Pilihan yang anda masukkan salah");
+                menuAdmin();
         }
     }
     // fungsi dari katalog buku
@@ -448,34 +453,41 @@ public class SistemPerpustakaan {
             System.out.println("| 6. Purchasable       |");
             System.out.println("|______________________|");
             System.out.print("Silahkan Pilih Genre Buku:");
-            perpustakaan[jumlahBuku][6] = input.nextLine();
-
-            if (perpustakaan[jumlahBuku][6].equals("1")){
-                perpustakaan[jumlahBuku][6] = novel = "Novel";
-
-            } else if (perpustakaan[jumlahBuku][6].equals("2")){
-                perpustakaan[jumlahBuku][6] = komik = "Komik";
-
-            } else if (perpustakaan[jumlahBuku][6].equals("3")){
-                perpustakaan[jumlahBuku][6] = cerpen = "Cerpen";
-
-            } else if (perpustakaan[jumlahBuku][6].equals("4")){
-                perpustakaan[jumlahBuku][6] = sejarah = "Sejarah";
-
-            } else if (perpustakaan[jumlahBuku][6].equals("5")){
-                perpustakaan[jumlahBuku][6] = ilmuPengetahuan = "Ilmu Pengetahuan";
-
-            } else if (perpustakaan[jumlahBuku][6].equals("6")){
-                perpustakaan[jumlahBuku][6] = purchasable = "Purchasable";
-                System.out.print("Masukkan Harga Buku:");
-                perpustakaan[jumlahBuku][7] = input.nextLine();
+            int genreBuku = input.nextInt();
+            switch (genreBuku){
+                case 1:
+                    perpustakaan[jumlahBuku][6] = novel;
+                    break;
+                case 2:
+                    perpustakaan[jumlahBuku][6] = komik;
+                    break;
+                case 3:
+                    perpustakaan[jumlahBuku][6] = cerpen;
+                    break;
+                case 4:
+                    perpustakaan[jumlahBuku][6] = sejarah;
+                    break;
+                case 5:
+                    perpustakaan[jumlahBuku][6] = ilmuPengetahuan;
+                    break;
+                case 6:
+                    perpustakaan[jumlahBuku][6] = purchasable;
+                    System.out.print("Masukkan Harga Buku:");
+                    input.nextLine();
+                    perpustakaan[jumlahBuku][7] = input.next();
+                    break;
+                default:
+                    System.out.println("Pilihan tidak valid. Silakan pilih lagi.");
+                    return;
             }
+            bukuTersedia[jumlahBuku] = true;
             jumlahBuku++;
-
+            System.out.println("Buku berhasil ditambahkan!");
             System.out.println("Apakah anda ingin menambah data lagi (y/n) ?");
+            input.nextLine();
             String pilih = input.nextLine();
 
-            if (pilih.equalsIgnoreCase("y")) {
+            if(pilih.equalsIgnoreCase("y")) {
             }else if(pilih.equalsIgnoreCase("n")) {
                 System.out.println("Buku berhasil ditambahkan!");
                 System.out.println("\n ______________________________________");
@@ -486,6 +498,7 @@ public class SistemPerpustakaan {
                 break;
 	        }else {
             	System.out.println("Proses invalid");
+                break;
             }
         }if(jumlahBuku == maxBuku){
             System.out.println("Maaf, perpustakaan penuh. Tidak dapat menambahkan buku baru.");
@@ -592,72 +605,69 @@ public class SistemPerpustakaan {
 
         System.out.print("\nMasukkan Kategori Buku: ");
         int kategori = input.nextInt();
-        if (jumlahBuku > 0){
-            for ( int i = 0; i < jumlahBuku; i++) {
-                switch (kategori){
-                    case 1:
-                    if (perpustakaan[i][6] == novel ){          // Cara agar buku yang ditambahkan sesuai dengan kategori yang diinginkan atribut ke 6 adalah genre / kategori buku
-                        System.out.println("-" + perpustakaan[i][0]);
-                        System.out.println("Penulis: " + perpustakaan[i][1]);
+        if(kategori > 6 || kategori == 0){
+            System.out.println("Kategori Tidak Tersedia");
+        }else if(kategori > 0 && kategori < 7){
+            if(jumlahBuku > 0){
+                for ( int i = 0; i <= jumlahBuku; i++) { 
+                    switch (kategori){
+                        case 1:
+                        if(perpustakaan[i][6] == novel){          // Cara agar buku yang ditambahkan sesuai dengan kategori yang diinginkan atribut ke 6 adalah genre / kategori buku
+                            System.out.println("-" + perpustakaan[i][0]);
+                            System.out.println("Penulis: " + perpustakaan[i][1]);
+                        }
+                        break;
+                        
+                        case 2:
+                        if(perpustakaan[i][6] == komik){          // Cara agar buku yang ditambahkan sesuai dengan kategori yang diinginkan atribut ke 6 adalah genre / kategori buku
+                            System.out.println("-" + perpustakaan[i][0]);
+                            System.out.println("Penulis: " + perpustakaan[i][1]);
+                        }
+                        break;
+                        
+                        case 3:
+                        if(perpustakaan[i][6] == cerpen){          // Cara agar buku yang ditambahkan sesuai dengan kategori yang diinginkan atribut ke 6 adalah genre / kategori buku
+                            System.out.println("-" + perpustakaan[i][0]);
+                            System.out.println("Penulis: " + perpustakaan[i][1]);
+                        }
+                        break;
 
+                        case 4:
+                        if(perpustakaan[i][6] == sejarah){          // Cara agar buku yang ditambahkan sesuai dengan kategori yang diinginkan atribut ke 6 adalah genre / kategori buku
+                            System.out.println("-" + perpustakaan[i][0]);
+                            System.out.println("Penulis: " + perpustakaan[i][1]);
+                        } 
+                        break;
+
+                        case 5:
+                        if(perpustakaan[i][6] == ilmuPengetahuan){          // Cara agar buku yang ditambahkan sesuai dengan kategori yang diinginkan atribut ke 6 adalah genre / kategori buku
+                            System.out.println("-" + perpustakaan[i][0]);
+                            System.out.println("Penulis: " + perpustakaan[i][1]);
+                        }
+                        break;
+                        case 6:
+                        if (perpustakaan[i][6] == purchasable) {
+                            System.out.println("-" + perpustakaan[i][0]);
+                            System.out.println("Penulis: " + perpustakaan[i][1]);
+                            System.out.println("Harga : " + perpustakaan[i][7]);
+                        
+                        }
+                        break;
+                        default:
+                        System.out.println("Belum Ada Buku Yang Ditambahkan");
                     }
-
-                    break;
-                    
-                
-                    case 2:
-                    if (perpustakaan[i][6] == komik){
-                        System.out.println("-" + perpustakaan[i][0]);
-                        System.out.println("Penulis: " + perpustakaan[i][1]);
-
-                    }
-                    break;
-
-                    case 3:
-                    if (perpustakaan[i][6] == cerpen) {
-                        System.out.println("-" + perpustakaan[i][0]);
-                        System.out.println("Penulis: " + perpustakaan[i][1]);
-
-                    }
-                    break;
-
-                    case 4:
-                    if (perpustakaan[i][6] == sejarah) {
-                        System.out.println("-" + perpustakaan[i][0]);
-                        System.out.println("Penulis: " + perpustakaan[i][1]);
-                    }
-                    break;
-
-                    case 5:
-                    if (perpustakaan[i][6] == ilmuPengetahuan) {
-                        System.out.println("-" + perpustakaan[i][0]);
-                        System.out.println("Penulis: " + perpustakaan[i][1]);
-                    }
-                    break;
-
-                    case 6:
-                    if (perpustakaan[i][6] == purchasable) {
-                        System.out.println("-" + perpustakaan[i][0]);
-                        System.out.println("Penulis: " + perpustakaan[i][1]);
-                        System.out.println("Harga : " + perpustakaan[i][7]);
-                    }
-                    break;
-                    
-                    default:
-                    System.out.println("Kategori Tidak Tersedia");
                 }
+            }else if(jumlahBuku == 0){
+                System.out.println("\n================================="); // jika belum ada buku yang ditambahkan akan menampilkan ini
+                System.out.println(" Belum ada buku yang ditambahkan ");
+                System.out.println("=================================");
             }
-         } else {
-            System.out.println("\n=================================");
-            System.out.println(" Belum ada buku yang ditambahkan ");
-            System.out.println("=================================");
         }
-
         System.out.println("\n ______________________________________");
         System.out.println("|                                      |");
         System.out.println("|  Tekan ENTER untuk kembali ke Menu   |");
         System.out.println("|______________________________________|");
-        input.nextLine();
+        input.nextLine(); // mengosongkan input agar dapat menjalankan fungsi menu admin
         input.nextLine();
         menuUser();
     }
