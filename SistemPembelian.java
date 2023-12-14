@@ -1,94 +1,44 @@
-import java.util.Scanner;
+static void Pembelian() {
 
-public class SistemPembelian {
-    public static void main(String[] args) {
-        Scanner input19 = new Scanner(System.in);
-        String pilihBuku, isTersedia, isBeli;
+            System.out.println("______________________________");
+            System.out.println("|==============================|");
+            System.out.println("|       Daftar Pembelian       |");
+            System.out.println("|------------------------------|");
+            System.out.println("|Sistem Perpustakaan Diponegoro|");
+            System.out.println("|                              |");
+            System.out.println("|______________________________|");
+            for (int i = 0; i < maxBuku; i++) {
+            if (perpustakaan[i][6] == purchasable) {
+                {
+            System.out.println("Judul: " + perpustakaan[i][0]);
+            System.out.println("Harga: " + perpustakaan[i][7]);
+            System.out.println();
+                }
 
-        while (true) {
-            System.out.println("______________________________");
-            System.out.println("______________________________");
-            System.out.println("        Daftar Buku           ");
-            System.out.println("------------------------------");
-            System.out.println("Sistem Perpustakaan Diponegoro");
-            System.out.println("                              ");
-            System.out.println("______________________________");
-            System.out.println("                              ");
-            System.out.println("Buku Yang Terdaftar");
-            System.out.println("Masukkan Nama Buku Yang Ingin Dicek : ");
 
-            isTersedia = input19.nextLine();
+
+            System.out.println("Masukkan Buku Yang Ingin Dibeli");
+            String isTersedia = input.nextLine();
             
-            if (isTersedia.equalsIgnoreCase("Buku A")) {
+            if (isTersedia.equalsIgnoreCase(perpustakaan[i][0])) {
                 System.out.println("                              ");
                 System.out.println("Buku ini tersedia");
                 System.out.println("Apakah anda ingin menambahkan buku kedalam keranjang (ya/tidak) ? ");
-                isBeli = input19.nextLine();
+                String isBeli = input.nextLine();
                 
                 if (isBeli.equals("ya")) {
                     System.out.println("                              ");
                     System.out.println("Buku berhasil ditambahkan silahkan membayar dikasir.");
                     System.out.println("                              ");
-                    System.out.println("                              ");
-                    System.out.println("Apakah Anda ingin melihat daftar buku lagi (ya/tidak) ? ");
-                    pilihBuku = input19.nextLine();
-                    if (!pilihBuku.equals("ya")) {
-                        break; // Keluar dari loop jika tidak ingin melihat daftar buku lagi
+                    System.out.println("\n ______________________________________");
+                    System.out.println("|                                      |");
+                    System.out.println("|  Tekan ENTER untuk kembali ke Menu   |");
+                    System.out.println("|______________________________________|");
+                    input.nextLine();
+                    menuAdmin();
                     }
-                } else {
-                    System.out.println("Apakah Anda ingin melihat daftar buku lagi (iya/tidak) ? ");
-                    pilihBuku = input19.nextLine();
-                    if (!pilihBuku.equals("ya")) {
-                        break; // Keluar dari loop jika tidak ingin melihat daftar buku lagi
-                    }
-                }
-            }
-            
-            if (isTersedia.equals("Buku B")) {
-                    System.out.println("                              ");
-                    System.out.println("Buku ini tersedia");
-                    System.out.println("Apakah anda ingin menambahkan buku kedalam keranjang (ya/tidak) ? ");
-                    isBeli = input19.nextLine();
-                    
-                    if (isBeli.equals("ya")) {
-                        System.out.println("                              ");
-                        System.out.println("Buku berhasil ditambahkan silahkan membayar dikasir.");
-                        System.out.println("                              ");
-                        System.out.println("                              ");
-                        System.out.println("Apakah Anda ingin melihat daftar buku lagi (ya/tidak) ? ");
-                        pilihBuku = input19.nextLine();
-                        if (!pilihBuku.equals("ya")) {
-                            break; // Keluar dari loop jika tidak ingin melihat daftar buku lagi
-                        }
-                    } else {
-                        System.out.println("Apakah Anda ingin melihat daftar buku lagi (iya/tidak) ? ");
-                        pilihBuku = input19.nextLine();
-                        if (!pilihBuku.equals("ya")) {
-                            break; // Keluar dari loop jika tidak ingin melihat daftar buku lagi
-                        }
-                    }
-            }
-
-            if (isTersedia.equals("Buku C")) {
-                    System.out.println("                              ");
-                    System.out.println("Buku ini tidak tersedia");
-                        System.out.println("                              ");
-                        System.out.println("Apakah Anda ingin melihat daftar buku lagi (ya/tidak) ? ");
-                        pilihBuku = input19.nextLine();
-                        if (!pilihBuku.equals("ya")) {
-                            break; // Keluar dari loop jika tidak ingin melihat daftar buku lagi
-                        }
-                    } else {
-                        System.out.println("Apakah Anda ingin melihat daftar buku lagi (iya/tidak) ? ");
-                        pilihBuku = input19.nextLine();
-                        if (!pilihBuku.equals("ya")) {
-                            break; // Keluar dari loop jika tidak ingin melihat daftar buku lagi
-                        }
-                    }
-            }
-
-                        
-                    
-        }
-        
     }
+}
+            }
+        
+        }

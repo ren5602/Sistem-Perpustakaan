@@ -107,6 +107,33 @@ public class SistemPerpustakaan {
         perpustakaan[1][5] = "194";
         perpustakaan[1][6] = komik;
         bukuTersedia[1] = true;
+
+
+
+        perpustakaan[2][0] = "Gagal Menjadi Manusia";
+        perpustakaan[2][1] = "Osamu Dazai";
+        perpustakaan[2][2] = "Gramedia";
+        perpustakaan[2][3] = "2000";
+        perpustakaan[2][4] = "123";
+        perpustakaan[2][5] = "700";
+        perpustakaan[2][6] = purchasable;
+        perpustakaan[2][7] = "Rp100.000,00";
+        bukuTersedia[2] = true;
+
+
+
+
+        perpustakaan[3][0] = "Detective Conan";
+        perpustakaan[3][1] = "Aoyama Gosho";
+        perpustakaan[3][2] = "Gramedia";
+        perpustakaan[3][3] = "2020";
+        perpustakaan[3][4] = "123";
+        perpustakaan[3][5] = "50";
+        perpustakaan[3][6] = purchasable;
+        perpustakaan[3][7] = "Rp75.000,00";
+        bukuTersedia[3] = true;
+
+        
         
     }
     public static void main(String[] args) {
@@ -181,6 +208,8 @@ public class SistemPerpustakaan {
             case 5:
                 pengembalianBuku();
             case 6:
+                Pembelian();
+                break;
             case 7:
             PenambahanBuku();
                 break;
@@ -657,6 +686,51 @@ public class SistemPerpustakaan {
                 break;
         }
     }
+
+     static void Pembelian() {
+
+            System.out.println("______________________________");
+            System.out.println("|==============================|");
+            System.out.println("|       Daftar Pembelian       |");
+            System.out.println("|------------------------------|");
+            System.out.println("|Sistem Perpustakaan Diponegoro|");
+            System.out.println("|                              |");
+            System.out.println("|______________________________|");
+            for (int i = 0; i < maxBuku; i++) {
+            if (perpustakaan[i][6] == purchasable) {
+                {
+            System.out.println("Judul: " + perpustakaan[i][0]);
+            System.out.println("Harga: " + perpustakaan[i][7]);
+            System.out.println();
+                }
+
+
+
+            System.out.println("Masukkan Buku Yang Ingin Dibeli");
+            String isTersedia = input.nextLine();
+            
+            if (isTersedia.equalsIgnoreCase(perpustakaan[i][0])) {
+                System.out.println("                              ");
+                System.out.println("Buku ini tersedia");
+                System.out.println("Apakah anda ingin menambahkan buku kedalam keranjang (ya/tidak) ? ");
+                String isBeli = input.nextLine();
+                
+                if (isBeli.equals("ya")) {
+                    System.out.println("                              ");
+                    System.out.println("Buku berhasil ditambahkan silahkan membayar dikasir.");
+                    System.out.println("                              ");
+                    System.out.println("\n ______________________________________");
+                    System.out.println("|                                      |");
+                    System.out.println("|  Tekan ENTER untuk kembali ke Menu   |");
+                    System.out.println("|______________________________________|");
+                    input.nextLine();
+                    menuAdmin();
+                    }
+    }
+}
+            }
+        
+        }
     static void RiwayatTambah(){
         System.out.println("      Riwayat Penambahan Buku       ");
         System.out.println("|==================================|");
