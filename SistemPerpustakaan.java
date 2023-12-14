@@ -215,7 +215,7 @@ public class SistemPerpustakaan {
         System.out.println("| 6. Purchasable       |");
         System.out.println("|______________________|");
 
-        System.out.print("\nMasukkan Kategori Buku: ");
+        System.out.print("\nMasukkan Kategori Buku (1/2/3/4/5/6): ");
         int kategori = input.nextInt();
         if(kategori > 6 || kategori == 0){
             System.out.println("Kategori Tidak Tersedia");
@@ -520,7 +520,7 @@ public class SistemPerpustakaan {
             System.out.println("| 5. Ilmu Pengetahuan  |");
             System.out.println("| 6. Purchasable       |");
             System.out.println("|______________________|");
-            System.out.print("Silahkan Pilih Genre Buku:");
+            System.out.print("Silahkan Pilih Genre Buku (1/2/3/4/5/6/):");
             int genreBuku = input.nextInt();
             switch (genreBuku){
                 case 1:
@@ -607,12 +607,18 @@ public class SistemPerpustakaan {
     }
     static void Riwayat(){
         System.out.println("Menu riwayat");
-        System.out.println("1. Riwayat Penambahan Buku");
-        System.out.println("2. Riwayat Peminjaman Buku");
-        System.out.println("3. Riwayat Pengembalian Buku");
-        System.out.println("4. Riwayat Pembelian Buku");
-        System.out.println("5. Kembali ke Menu Utama");
-        System.out.print("Pilih Menu : ");
+        System.out.println("____________________________________");
+        System.out.println("|           Fitur Riwayat          |");
+        System.out.println("|==================================|");
+        System.out.println("| Perpustakaan Pangeran Diponegoro |");
+        System.out.println("|                                  |");
+        System.out.println("| 1. Riwayat Penambahan Buku       |");
+        System.out.println("| 2. Riwayat Peminjaman Buku       |");
+        System.out.println("| 3. Riwayat Pengembalian Buku     |");
+        System.out.println("| 4. Riwayat Pembelian Buku        |");
+        System.out.println("| 5. Kembali ke Menu Utama         |");
+        System.out.println("|__________________________________|");
+        System.out.print("Pilih Menu (1/2/3/4/5/6): ");
         int pilihan = input.nextInt();
         switch (pilihan) {
             case 1:
@@ -637,7 +643,9 @@ public class SistemPerpustakaan {
         }
     }
     static void RiwayatTambah(){
-        System.out.println("Riwayat Penambahan Buku");
+        System.out.println("      Riwayat Penambahan Buku       ");
+        System.out.println("|==================================|");
+        System.out.println("| Perpustakaan Pangeran Diponegoro |");
         for (int i = 0; i < maxBuku; i++) {
             if (perpustakaan[i][0] != null && perpustakaan[i][7] != null) {
                 System.out.println("Buku ke-" + (i + 1));
@@ -746,7 +754,7 @@ public class SistemPerpustakaan {
         System.out.println("| 6. Purchasable       |");
         System.out.println("|______________________|");
 
-        System.out.print("\nMasukkan Kategori Buku: ");
+        System.out.print("\nMasukkan Kategori Buku (1/2/3/4/5/6): ");
         int kategori = input.nextInt();
         if(kategori > 6 || kategori == 0){
             System.out.println("Kategori Tidak Tersedia");
