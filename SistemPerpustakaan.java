@@ -225,83 +225,95 @@ public class SistemPerpustakaan {
                     switch (kategori){
                         case 1:
                         if(perpustakaan[i][6] == novel){          // Cara agar buku yang ditambahkan sesuai dengan kategori yang diinginkan atribut ke 6 adalah genre / kategori buku
-                            System.out.println("\nJudul: " + perpustakaan[i][0]);
-                            System.out.println("Penulis: " + perpustakaan[i][1]);
-                            System.out.println("Penerbit: " + perpustakaan[i][2]);
-                            System.out.println("Tahun Terbit: " + perpustakaan[i][3]);
-                            System.out.println("ISBN: " + perpustakaan[i][4]);
-                            System.out.println("Jumlah halaman: " + perpustakaan[i][5]);
-                            System.out.println("Genre: " + perpustakaan[i][6]);
-                            System.out.println("Status: " + (bukuTersedia[i] ? "Tersedia" : "Tidak Tersedia"));
+                            System.out.println("\n---------------------------------------");
+                            System.out.println(" Judul         : " + perpustakaan[i][0]);
+                            System.out.println(" Penulis       : " + perpustakaan[i][1]);
+                            System.out.println(" Penerbit      : " + perpustakaan[i][2]);
+                            System.out.println(" Tahun Terbit  : " + perpustakaan[i][3]);
+                            System.out.println(" ISBN          : " + perpustakaan[i][4]);
+                            System.out.println(" Jumlah halaman: " + perpustakaan[i][5]);
+                            System.out.println(" Genre         : " + perpustakaan[i][6]);
+                            System.out.println(" Status        : " + (bukuTersedia[i] ? "Tersedia" : "Tidak Tersedia"));
+                            System.out.println("---------------------------------------");
                             System.out.println();
                         }
                         break;
                         
                         case 2:
                         if(perpustakaan[i][6] == komik){          // Cara agar buku yang ditambahkan sesuai dengan kategori yang diinginkan atribut ke 6 adalah genre / kategori buku
-                            System.out.println("Judul: " + perpustakaan[i][0]);
-                            System.out.println("Penulis: " + perpustakaan[i][1]);
-                            System.out.println("Penerbit: " + perpustakaan[i][2]);
-                            System.out.println("Tahun Terbit: " + perpustakaan[i][3]);
-                            System.out.println("ISBN: " + perpustakaan[i][4]);
-                            System.out.println("Jumlah halaman: " + perpustakaan[i][5]);
-                            System.out.println("Genre: " + perpustakaan[i][6]);
-                            System.out.println("Status: " + (bukuTersedia[i] ? "Tersedia" : "Tidak Tersedia"));
+                            System.out.println("\n---------------------------------------");
+                            System.out.println(" Judul         : " + perpustakaan[i][0]);
+                            System.out.println(" Penulis       : " + perpustakaan[i][1]);
+                            System.out.println(" Penerbit      : " + perpustakaan[i][2]);
+                            System.out.println(" Tahun Terbit  : " + perpustakaan[i][3]);
+                            System.out.println(" ISBN          : " + perpustakaan[i][4]);
+                            System.out.println(" Jumlah halaman: " + perpustakaan[i][5]);
+                            System.out.println(" Genre         : " + perpustakaan[i][6]);
+                            System.out.println(" Status        : " + (bukuTersedia[i] ? "Tersedia" : "Tidak Tersedia"));
+                            System.out.println("---------------------------------------");
                             System.out.println();
                         }
                         break;
                         
                         case 3:
                         if(perpustakaan[i][6] == cerpen){          // Cara agar buku yang ditambahkan sesuai dengan kategori yang diinginkan atribut ke 6 adalah genre / kategori buku
-                            System.out.println("Judul: " + perpustakaan[i][0]);
-                            System.out.println("Penulis: " + perpustakaan[i][1]);
-                            System.out.println("Penerbit: " + perpustakaan[i][2]);
-                            System.out.println("Tahun Terbit: " + perpustakaan[i][3]);
-                            System.out.println("ISBN: " + perpustakaan[i][4]);
-                            System.out.println("Jumlah halaman: " + perpustakaan[i][5]);
-                            System.out.println("Genre: " + perpustakaan[i][6]);
-                            System.out.println("Status: " + (bukuTersedia[i] ? "Tersedia" : "Tidak Tersedia"));
+                            System.out.println("\n---------------------------------------");
+                            System.out.println(" Judul         : " + perpustakaan[i][0]);
+                            System.out.println(" Penulis       : " + perpustakaan[i][1]);
+                            System.out.println(" Penerbit      : " + perpustakaan[i][2]);
+                            System.out.println(" Tahun Terbit  : " + perpustakaan[i][3]);
+                            System.out.println(" ISBN          : " + perpustakaan[i][4]);
+                            System.out.println(" Jumlah halaman: " + perpustakaan[i][5]);
+                            System.out.println(" Genre         : " + perpustakaan[i][6]);
+                            System.out.println(" Status        : " + (bukuTersedia[i] ? "Tersedia" : "Tidak Tersedia"));
+                            System.out.println("---------------------------------------");
                             System.out.println();
                         }
                         break;
 
                         case 4:
                         if(perpustakaan[i][6] == sejarah){          // Cara agar buku yang ditambahkan sesuai dengan kategori yang diinginkan atribut ke 6 adalah genre / kategori buku
-                            System.out.println("Judul: " + perpustakaan[i][0]);
-                            System.out.println("Penulis: " + perpustakaan[i][1]);
-                            System.out.println("Penerbit: " + perpustakaan[i][2]);
-                            System.out.println("Tahun Terbit: " + perpustakaan[i][3]);
-                            System.out.println("ISBN: " + perpustakaan[i][4]);
-                            System.out.println("Jumlah halaman: " + perpustakaan[i][5]);
-                            System.out.println("Genre: " + perpustakaan[i][6]);
-                            System.out.println("Status: " + (bukuTersedia[i] ? "Tersedia" : "Tidak Tersedia"));
+                            System.out.println("\n---------------------------------------");
+                            System.out.println(" Judul         : " + perpustakaan[i][0]);
+                            System.out.println(" Penulis       : " + perpustakaan[i][1]);
+                            System.out.println(" Penerbit      : " + perpustakaan[i][2]);
+                            System.out.println(" Tahun Terbit  : " + perpustakaan[i][3]);
+                            System.out.println(" ISBN          : " + perpustakaan[i][4]);
+                            System.out.println(" Jumlah halaman: " + perpustakaan[i][5]);
+                            System.out.println(" Genre         : " + perpustakaan[i][6]);
+                            System.out.println(" Status        : " + (bukuTersedia[i] ? "Tersedia" : "Tidak Tersedia"));
+                            System.out.println("---------------------------------------");
                             System.out.println();
                         } 
                         break;
 
                         case 5:
                         if(perpustakaan[i][6] == ilmuPengetahuan){          // Cara agar buku yang ditambahkan sesuai dengan kategori yang diinginkan atribut ke 6 adalah genre / kategori buku
-                            System.out.println("Judul: " + perpustakaan[i][0]);
-                            System.out.println("Penulis: " + perpustakaan[i][1]);
-                            System.out.println("Penerbit: " + perpustakaan[i][2]);
-                            System.out.println("Tahun Terbit: " + perpustakaan[i][3]);
-                            System.out.println("ISBN: " + perpustakaan[i][4]);
-                            System.out.println("Jumlah halaman: " + perpustakaan[i][5]);
-                            System.out.println("Genre: " + perpustakaan[i][6]);
-                            System.out.println("Status: " + (bukuTersedia[i] ? "Tersedia" : "Tidak Tersedia"));
+                            System.out.println("\n---------------------------------------");
+                            System.out.println(" Judul         : " + perpustakaan[i][0]);
+                            System.out.println(" Penulis       : " + perpustakaan[i][1]);
+                            System.out.println(" Penerbit      : " + perpustakaan[i][2]);
+                            System.out.println(" Tahun Terbit  : " + perpustakaan[i][3]);
+                            System.out.println(" ISBN          : " + perpustakaan[i][4]);
+                            System.out.println(" Jumlah halaman: " + perpustakaan[i][5]);
+                            System.out.println(" Genre         : " + perpustakaan[i][6]);
+                            System.out.println(" Status        : " + (bukuTersedia[i] ? "Tersedia" : "Tidak Tersedia"));
+                            System.out.println("---------------------------------------");
                             System.out.println();
                         }
                         break;
                         case 6:
                         if (perpustakaan[i][6] == purchasable) {
-                            System.out.println("Judul: " + perpustakaan[i][0]);
-                            System.out.println("Penulis: " + perpustakaan[i][1]);
-                            System.out.println("Penerbit: " + perpustakaan[i][2]);
-                            System.out.println("Tahun Terbit: " + perpustakaan[i][3]);
-                            System.out.println("ISBN: " + perpustakaan[i][4]); 
-                            System.out.println("Jumlah halaman: " + perpustakaan[i][5]);
-                            System.out.println("Genre: " + perpustakaan[i][6]);
-                            System.out.println("Harga : " + perpustakaan[i][7]);
+                            System.out.println("\n---------------------------------------");
+                            System.out.println(" Judul         : " + perpustakaan[i][0]);
+                            System.out.println(" Penulis       : " + perpustakaan[i][1]);
+                            System.out.println(" Penerbit      : " + perpustakaan[i][2]);
+                            System.out.println(" Tahun Terbit  : " + perpustakaan[i][3]);
+                            System.out.println(" ISBN          : " + perpustakaan[i][4]); 
+                            System.out.println(" Jumlah halaman: " + perpustakaan[i][5]);
+                            System.out.println(" Genre         : " + perpustakaan[i][6]);
+                            System.out.println(" Harga         : " + perpustakaan[i][7]);
+                            System.out.println("---------------------------------------");
                             System.out.println();
                         
                         }
@@ -430,7 +442,7 @@ public class SistemPerpustakaan {
                 meminjam = true;
                 valid = true;
             } else {
-                System.out.println("=====================");
+                System.out.println("\n=====================");
                 System.out.println(" Buku tidak tersedia");
                 System.out.println("=====================");
                 meminjam = false;
@@ -441,13 +453,25 @@ public class SistemPerpustakaan {
                 meminjam = true;
                 valid = true;
                 tanggalPengembalian = new Date();
-
+                long selisihHari = (tanggalPengembalian.getTime() - tanggalPinjam.getTime()) / (24 * 60 * 60 * 1000);
+                if (selisihHari <= 7) {
                 System.out.println("\n______________________________________________");
-                System.out.println(" Nama Peminjam              : " + nama);
-                System.out.println(" Nama Buku                  : " + perpustakaan[i][0]);
-                System.out.println(" Nama Penulis               : " + perpustakaan[i][1]);
-                System.out.println(" Tanggal Pengembalian       : " + tanggalPengembalian);
+                System.out.println(" Nama Peminjam            : " + nama);
+                System.out.println(" Nama Buku                : " + perpustakaan[i][0]);
+                System.out.println(" Nama Penulis             : " + perpustakaan[i][1]);
+                System.out.println(" Tanggal Pengembalian      : " + tanggalPengembalian);
                 System.out.println("______________________________________________");
+                }
+                else {
+                    int denda = (int) ((selisihHari - 7) * 5000);
+                    System.out.println("\n______________________________________________");
+                System.out.println(" Nama Peminjam         : " + nama);
+                System.out.println(" Nama Buku             : " + perpustakaan[i][0]);
+                System.out.println(" Nama Penulis          : " + perpustakaan[i][1]);
+                System.out.println(" Tanggal Pengembalian  : " + tanggalPengembalian);
+                System.out.println(" Denda                 : " + denda);
+                System.out.println("______________________________________________");
+                }
                 System.out.print("\nApakah Anda ingin mengembalikan buku lagi (y/n)? ");
                 String pinjamLagi = input.nextLine();
                 if (pinjamLagi.equalsIgnoreCase("n")) {
@@ -581,27 +605,29 @@ public class SistemPerpustakaan {
         public static void tampilkanDaftarBuku() {
         for (int i = 0; i < maxBuku; i++) {
             if (perpustakaan[i][0] != null && perpustakaan[i][7] != null) {
-                System.out.println("Buku ke-" + (i + 1));
-                System.out.println("Judul: " + perpustakaan[i][0]);
-                System.out.println("Penulis: " + perpustakaan[i][1]);
-                System.out.println("Penerbit: " + perpustakaan[i][2]);
-                System.out.println("Tahun Terbit: " + perpustakaan[i][3]);
-                System.out.println("ISBN: " + perpustakaan[i][4]);
+                System.out.println("\n-------------------------------------");
+                System.out.println("           Buku ke-" + (i + 1));
+                System.out.println("Judul         : " + perpustakaan[i][0]);
+                System.out.println("Penulis       : " + perpustakaan[i][1]);
+                System.out.println("Penerbit      : " + perpustakaan[i][2]);
+                System.out.println("Tahun Terbit  : " + perpustakaan[i][3]);
+                System.out.println("ISBN          : " + perpustakaan[i][4]);
                 System.out.println("Jumlah Halaman: " + perpustakaan[i][5]);
-                System.out.println("Genre Buku: " + perpustakaan[i][6]);
-                System.out.println("Harga Buku: " + perpustakaan[i][7]);
-                System.out.println("------------------------------");
+                System.out.println("Genre Buku    : " + perpustakaan[i][6]);
+                System.out.println("Harga Buku    : " + perpustakaan[i][7]);
+                System.out.println("-------------------------------------");
 
             }else if (perpustakaan[i][0] != null && !perpustakaan[i][0].isEmpty()) {
-                System.out.println("Buku ke-" + (i + 1));
-                System.out.println("Judul: " + perpustakaan[i][0]);
-                System.out.println("Penulis: " + perpustakaan[i][1]);
-                System.out.println("Penerbit: " + perpustakaan[i][2]);
-                System.out.println("Tahun Terbit: " + perpustakaan[i][3]);
-                System.out.println("ISBN: " + perpustakaan[i][4]);
-                System.out.println("Jumlah Halaman: " + perpustakaan[i][5]);
-                System.out.println("Genre Buku: " + perpustakaan[i][6]);
-                System.out.println("------------------------------");
+                System.out.println("\n-------------------------------------");
+                System.out.println("            Buku ke-" + (i + 1));
+                System.out.println(" Judul         : " + perpustakaan[i][0]);
+                System.out.println(" Penulis       : " + perpustakaan[i][1]);
+                System.out.println(" Penerbit      : " + perpustakaan[i][2]);
+                System.out.println(" Tahun Terbit  : " + perpustakaan[i][3]);
+                System.out.println(" ISBN          : " + perpustakaan[i][4]);
+                System.out.println(" Jumlah Halaman: " + perpustakaan[i][5]);
+                System.out.println(" Genre Buku: " + perpustakaan[i][6]);
+                System.out.println("-------------------------------------");
             }
         }
         System.out.println("\n ______________________________________");
