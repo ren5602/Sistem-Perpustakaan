@@ -170,6 +170,8 @@ public class SistemPerpustakaan {
                 KatalogBuku();
                 break;
             case 2:
+            CariBuku();
+            break;
             case 3:
                 aturanPeminjaman();
                 break;
@@ -317,6 +319,57 @@ public class SistemPerpustakaan {
         input.nextLine();
         menuAdmin();
     }
+
+    static void CariBuku() {
+        System.out.println("\n______________________________");
+        System.out.println("______________________________");
+        System.out.println("        Selamat  Datang       ");
+        System.out.println("        di Pencarian Buku    ");
+        System.out.println("------------------------------");
+        System.out.println("      Sistem Perpustakaan     ");
+        System.out.println("      Pangeran Diponegoro     ");
+        System.out.println("______________________________");
+    
+        input.nextLine(); // Membersihkan buffer
+        System.out.print("\nMasukkan informasi buku yang ingin dicari: ");
+        String keyword = input.nextLine().toLowerCase();
+    
+        boolean ditemukan = false;
+    
+        System.out.printf("\n|  %-17s | %-17s | %-15s | %-15s | %-15s | %-15s | %-18s |%n", "Judul", "Penulis", "Penerbit", "Tahun Terbit", "ISBN", "Jml Halaman", "Status");
+    System.out.println("|--------------------|-------------------|-----------------|-----------------|-----------------|-----------------|--------------------|");
+    
+        for (int i = 0; i < jumlahBuku; i++) {
+            if (perpustakaan[i][0].toLowerCase().contains(keyword) ||
+                perpustakaan[i][1].toLowerCase().contains(keyword) ||
+                perpustakaan[i][2].toLowerCase().contains(keyword) ||
+                perpustakaan[i][3].toLowerCase().contains(keyword) ||
+                perpustakaan[i][4].toLowerCase().contains(keyword) ||
+                perpustakaan[i][5].toLowerCase().contains(keyword)) {
+                System.out.printf("|   %-17s|  %-17s|  %-15s|  %-15s|  %-15s|  %-15s|  %-18s|\n",
+                        perpustakaan[i][0], perpustakaan[i][1], perpustakaan[i][2],
+                        perpustakaan[i][3], perpustakaan[i][4], perpustakaan[i][5],
+                        bukuTersedia[i] ? "Tersedia" : "Tidak Tersedia");
+                ditemukan = true;
+            }
+        }
+    
+        System.out.println("--------------------------------------------------------------------------------------------------------------------------------------|");
+    
+        if (!ditemukan) {
+            System.out.println("Buku dengan informasi tersebut tidak ditemukan.");
+            menuAdmin();
+        }
+        System.out.println("\n ______________________________________");
+        System.out.println("|                                      |");
+        System.out.println("|  Tekan ENTER untuk kembali ke Menu   |");
+        System.out.println("|______________________________________|");
+        input.nextLine(); // mengosongkan input agar dapat menjalankan fungsi menu admin
+        menuAdmin();
+    }
+    
+    
+
     static void Peminjaman(){
         System.out.println("\n______________________________");
         System.out.println("______________________________");
