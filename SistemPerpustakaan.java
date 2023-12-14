@@ -17,6 +17,13 @@ public class SistemPerpustakaan {
     static int banyakBuku, maxPinjam = 3;
     static boolean meminjam = false;
     static boolean valid = false;
+    static String[][] riwayatPeminjaman = new String[100][5];
+    static int jumlahRiwayat = 0;
+
+    static String[][] riwayatPengembalian = new String[100][5];
+    static int jumlahRiwayatPengembalian = 0;
+
+ 
 
     static String perpustakaan[][] = new String[maxBuku][maxAtributBuku];
     // Batas Maksimal Percobaan
@@ -86,13 +93,13 @@ public class SistemPerpustakaan {
         }
     }
     static void defaultData() {
-        jumlahBuku = 2;
+        jumlahBuku = 4;
         
         perpustakaan[0][0] = "Harry Potter";
         perpustakaan[0][1] = "J.K Rowling";
         perpustakaan[0][2] = "Gramedia";
         perpustakaan[0][3] = "2000";
-        perpustakaan[0][4] = "123";
+        perpustakaan[0][4] = "111";
         perpustakaan[0][5] = "636";
         perpustakaan[0][6] = novel;
         bukuTersedia[0] = true;
@@ -103,10 +110,37 @@ public class SistemPerpustakaan {
         perpustakaan[1][1] = "Masashi Kishimoto";
         perpustakaan[1][2] = "Alex Media";
         perpustakaan[1][3] = "2003";
-        perpustakaan[1][4] = "1234";
+        perpustakaan[1][4] = "222";
         perpustakaan[1][5] = "194";
         perpustakaan[1][6] = komik;
         bukuTersedia[1] = true;
+
+
+
+        perpustakaan[2][0] = "Gagal Menjadi Manusia";
+        perpustakaan[2][1] = "Osamu Dazai";
+        perpustakaan[2][2] = "Gramedia";
+        perpustakaan[2][3] = "2000";
+        perpustakaan[2][4] = "333";
+        perpustakaan[2][5] = "700";
+        perpustakaan[2][6] = purchasable;
+        perpustakaan[2][7] = "Rp100.000,00";
+        bukuTersedia[2] = true;
+
+
+
+
+        perpustakaan[3][0] = "Detective Conan";
+        perpustakaan[3][1] = "Aoyama Gosho";
+        perpustakaan[3][2] = "Gramedia";
+        perpustakaan[3][3] = "2020";
+        perpustakaan[3][4] = "444";
+        perpustakaan[3][5] = "50";
+        perpustakaan[3][6] = purchasable;
+        perpustakaan[3][7] = "Rp75.000,00";
+        bukuTersedia[3] = true;
+
+        
         
     }
     public static void main(String[] args) {
@@ -181,6 +215,8 @@ public class SistemPerpustakaan {
             case 5:
                 pengembalianBuku();
             case 6:
+                Pembelian();
+                break;
             case 7:
             PenambahanBuku();
                 break;
@@ -291,26 +327,14 @@ public class SistemPerpustakaan {
     static void aturanPeminjaman(){
         String rule1 = "1. Apabila ingin meminjam buku, harap konfirmasi kepada petugas perpustakaan.             ";
         String rule2 = "2. Maksimal lama peminjaman buku adalah 7 hari.                                               ";
-        String rule3 = "3. Apabila waktu peminjaman dirasa kurang, dapat memperpanjang waktu dengan konfirmasi kepada petugas.";
-        String rule4 = "4. Keterlambatan pengembalian buku akan dikenakan denda dengan rincian sebagai berikut :";
-        String rule5 = "  - Untuk buku bergenre Novel denda keterlambatan yang harus dibayar Rp5000/hari";
-        String rule6 = "  - Untuk buku bergenre Komik denda keterlambatan yang harus dibayar Rp4000/hari";
-        String rule7 = "  - Untuk buku bergenre Cerpen denda keterlambatan yang harus dibayar Rp3000/hari";
-        String rule8 = "  - Untuk buku bergenre Sejarah denda keterlambatan yang harus dibayar Rp8000/hari";
-        String rule9 = "  - Untuk buku bergenre Ilmu Pengetahuan denda keterlambatan yang harus dibayar Rp10000/hari";
-        String rule10 ="5. Pembayaran denda keterlambatan dapat dibayarkan kepada petugas perpustakaan secara tunai maupun non tunai.";
+        String rule3 = "4. Keterlambatan pengembalian buku akan dikenakan denda dengan nominals sebesar Rp,-5000 :";
+        String rule4 ="5. Pembayaran denda keterlambatan dapat dibayarkan kepada petugas perpustakaan secara tunai maupun non tunai.";
 
         System.out.println("Aturan Peminjaman Buku:");
         System.out.println(rule1);
         System.out.println(rule2);
         System.out.println(rule3);
         System.out.println(rule4);
-        System.out.println(rule5);
-        System.out.println(rule6);
-        System.out.println(rule7);
-        System.out.println(rule8);
-        System.out.println(rule9);
-        System.out.println(rule10);
         System.out.println("\n ______________________________________");
         System.out.println("|                                      |");
         System.out.println("|  Tekan ENTER untuk kembali ke Menu   |");
@@ -394,6 +418,12 @@ public class SistemPerpustakaan {
                 bukuTersedia[i] = false;
                 bukuDitemukan = true;
                 tanggalPinjam = new Date();
+                riwayatPeminjaman[jumlahRiwayat][0] = namaPeminjam;
+                    riwayatPeminjaman[jumlahRiwayat][1] = perpustakaan[i][0];
+                    riwayatPeminjaman[jumlahRiwayat][2] = perpustakaan[i][1];
+                    riwayatPeminjaman[jumlahRiwayat][3] = tanggalPinjam.toString();
+                    riwayatPeminjaman[jumlahRiwayat][4] = perpustakaan[i][4];
+                    jumlahRiwayat++;
 
                 System.out.println("\n______________________________________________");
                 System.out.println(" Nama Peminjam              : " + namaPeminjam);
@@ -442,6 +472,13 @@ public class SistemPerpustakaan {
                 bukuTersedia[i] = true;
                 meminjam = true;
                 valid = true;
+                riwayatPengembalian[jumlahRiwayatPengembalian][0] = namaPeminjam;
+                riwayatPengembalian[jumlahRiwayatPengembalian][1] = perpustakaan[i][0];
+                riwayatPengembalian[jumlahRiwayatPengembalian][2] = perpustakaan[i][1];
+                riwayatPengembalian[jumlahRiwayatPengembalian][3] = tanggalPinjam.toString();
+                riwayatPengembalian[jumlahRiwayatPengembalian][4] = perpustakaan[i][4];
+                jumlahRiwayatPengembalian++;
+
             } else {
                 System.out.println("\n=====================");
                 System.out.println(" Buku tidak tersedia");
@@ -657,6 +694,51 @@ public class SistemPerpustakaan {
                 break;
         }
     }
+
+    static void Pembelian() {
+
+        System.out.println("______________________________");
+        System.out.println("|==============================|");
+        System.out.println("|       Daftar Pembelian       |");
+        System.out.println("|------------------------------|");
+        System.out.println("|Sistem Perpustakaan Diponegoro|");
+        System.out.println("|                              |");
+        System.out.println("|______________________________|");
+        for (int i = 0; i < maxBuku; i++) {
+            if (perpustakaan[i][6] == purchasable) {
+                {
+                    System.out.println("Judul: " + perpustakaan[i][0]);
+                    System.out.println("Harga: " + perpustakaan[i][7]);
+                    System.out.println();
+                }
+
+
+
+                System.out.println("Masukkan Buku Yang Ingin Dibeli");
+                String isTersedia = input.nextLine();
+            
+            if (isTersedia.equalsIgnoreCase(perpustakaan[i][0])) {
+                System.out.println("                              ");
+                System.out.println("Buku ini tersedia");
+                System.out.println("Apakah anda ingin menambahkan buku kedalam keranjang (ya/tidak) ? ");
+                String isBeli = input.nextLine();
+                
+                if (isBeli.equals("ya")) {
+                    System.out.println("                              ");
+                    System.out.println("Buku berhasil ditambahkan silahkan membayar dikasir.");
+                    System.out.println("                              ");
+                    System.out.println("\n ______________________________________");
+                    System.out.println("|                                      |");
+                    System.out.println("|  Tekan ENTER untuk kembali ke Menu   |");
+                    System.out.println("|______________________________________|");
+                    input.nextLine();
+                    menuAdmin();
+                }
+            }
+            }
+        }
+        
+    }
     static void RiwayatTambah(){
         System.out.println("      Riwayat Penambahan Buku       ");
         System.out.println("|==================================|");
@@ -695,10 +777,61 @@ public class SistemPerpustakaan {
         Riwayat();
     }
     static void RiwayatPeminjaman(){
+        System.out.println("\n______________________________");
+        System.out.println("______________________________");
+        System.out.println("      Riwayat Peminjaman      ");
+        System.out.println("------------------------------");
+        System.out.println("      Sistem Perpustakaan     ");
+        System.out.println("      Pangeran Diponegoro     ");
+        System.out.println("______________________________");
+
+        System.out.println("\n--------------------------------------------------------------------------------------------------------------");
+        System.out.println("|   Nama Peminjam   |     Judul Buku      |       Penulis         |       Tanggal Peminjaman       |   ISBN   |");
+        System.out.println("|-------------------------------------------------------------------------------------------------------------|");
+
+        for (int i = 0; i < jumlahRiwayat; i++) {
+            System.out.printf("|    %-15s|   %-18s|   %-20s|  %-22s  |   %-7s|\n",
+                    riwayatPeminjaman[i][0], riwayatPeminjaman[i][1], riwayatPeminjaman[i][2],
+                    riwayatPeminjaman[i][3], riwayatPeminjaman[i][4]);
+        }
+
+        System.out.println("--------------------------------------------------------------------------------------------------------------");
+    System.out.println("\n ______________________________________");
+        System.out.println("|                                      |");
+        System.out.println("|  Tekan ENTER untuk kembali ke Menu   |");
+        System.out.println("|______________________________________|");
+        input.nextLine(); // mengosongkan input agar dapat menjalankan fungsi menu admin
+        input.nextLine();
+        menuAdmin();
 
     }
     static void RiwayatPengembalian(){
-        
+        System.out.println("\n______________________________");
+        System.out.println("______________________________");
+        System.out.println("      Riwayat Peminjaman      ");
+        System.out.println("------------------------------");
+        System.out.println("      Sistem Perpustakaan     ");
+        System.out.println("      Pangeran Diponegoro     ");
+        System.out.println("______________________________");
+
+        System.out.println("\n--------------------------------------------------------------------------------------------------------------");
+        System.out.println("|   Nama Peminjam   |     Judul Buku      |       Penulis         |       Tanggal Peminjaman       |   ISBN   |");
+        System.out.println("|-------------------------------------------------------------------------------------------------------------|");
+
+        for (int i = 0; i < jumlahRiwayatPengembalian; i++) {
+            System.out.printf("|    %-15s|   %-18s|   %-20s|  %-22s  |   %-7s|\n",
+                    riwayatPengembalian[i][0], riwayatPengembalian[i][1], riwayatPengembalian[i][2],
+                    riwayatPengembalian[i][3], riwayatPengembalian[i][4]);
+        }
+
+        System.out.println("--------------------------------------------------------------------------------------------------------------");
+    System.out.println("\n ______________________________________");
+        System.out.println("|                                      |");
+        System.out.println("|  Tekan ENTER untuk kembali ke Menu   |");
+        System.out.println("|______________________________________|");
+        input.nextLine(); // mengosongkan input agar dapat menjalankan fungsi menu admin
+        input.nextLine();
+        menuAdmin();
     }
     static void RiwayatPembelian(){
         
@@ -889,26 +1022,14 @@ public class SistemPerpustakaan {
     static void aturanPeminjamanUser(){
         String rule1 = "1. Apabila ingin meminjam buku, harap konfirmasi kepada petugas perpustakaan.             ";
         String rule2 = "2. Maksimal lama peminjaman buku adalah 7 hari.                                               ";
-        String rule3 = "3. Apabila waktu peminjaman dirasa kurang, dapat memperpanjang waktu dengan konfirmasi kepada petugas.";
-        String rule4 = "4. Keterlambatan pengembalian buku akan dikenakan denda dengan rincian sebagai berikut :";
-        String rule5 = "  - Untuk buku bergenre Novel denda keterlambatan yang harus dibayar Rp5000/hari";
-        String rule6 = "  - Untuk buku bergenre Komik denda keterlambatan yang harus dibayar Rp4000/hari";
-        String rule7 = "  - Untuk buku bergenre Cerpen denda keterlambatan yang harus dibayar Rp3000/hari";
-        String rule8 = "  - Untuk buku bergenre Sejarah denda keterlambatan yang harus dibayar Rp8000/hari";
-        String rule9 = "  - Untuk buku bergenre Ilmu Pengetahuan denda keterlambatan yang harus dibayar Rp10000/hari";
-        String rule10 ="5. Pembayaran denda keterlambatan dapat dibayarkan kepada petugas perpustakaan secara tunai maupun non tunai.";
+        String rule3 = "4. Keterlambatan pengembalian buku akan dikenakan denda dengan nominals sebesar Rp,-5000 :";
+        String rule4 ="5. Pembayaran denda keterlambatan dapat dibayarkan kepada petugas perpustakaan secara tunai maupun non tunai.";
 
         System.out.println("Aturan Peminjaman Buku:");
         System.out.println(rule1);
         System.out.println(rule2);
         System.out.println(rule3);
         System.out.println(rule4);
-        System.out.println(rule5);
-        System.out.println(rule6);
-        System.out.println(rule7);
-        System.out.println(rule8);
-        System.out.println(rule9);
-        System.out.println(rule10);
         System.out.println("\n ______________________________________");
         System.out.println("|                                      |");
         System.out.println("|  Tekan ENTER untuk kembali ke Menu   |");
