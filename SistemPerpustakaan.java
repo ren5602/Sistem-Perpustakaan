@@ -225,7 +225,7 @@ public class SistemPerpustakaan {
                     switch (kategori){
                         case 1:
                         if(perpustakaan[i][6] == novel){          // Cara agar buku yang ditambahkan sesuai dengan kategori yang diinginkan atribut ke 6 adalah genre / kategori buku
-                            System.out.println("Judul: " + perpustakaan[i][0]);
+                            System.out.println("\nJudul: " + perpustakaan[i][0]);
                             System.out.println("Penulis: " + perpustakaan[i][1]);
                             System.out.println("Penerbit: " + perpustakaan[i][2]);
                             System.out.println("Tahun Terbit: " + perpustakaan[i][3]);
@@ -371,25 +371,18 @@ public class SistemPerpustakaan {
         input.nextLine();
         namaPeminjam = input.nextLine();
 
-        for (int i = 0; i < maxPinjam; i++) {
+        boolean meminjam = true;
+        while (meminjam) {
             System.out.print("\nMasukkan Kode Buku            : ");
             namaBuku = input.nextLine();
-            if (namaBuku.equalsIgnoreCase(perpustakaan[i][4])) {
-                meminjam = true;
-                valid = true;
-            } else {
-                System.out.println("Buku tidak tersedia");
-                meminjam = false;
-                valid = false;
-                menuAdmin();
-            }
-            if (meminjam) {
-                meminjam = true;
-                valid = true;
+            boolean bukuDitemukan = false;
+        for (int i = 0; i < maxPinjam; i++) {
+            if (namaBuku.equalsIgnoreCase(perpustakaan[i][4]) && bukuTersedia[i]) {
+                bukuTersedia[i] = false;
+                bukuDitemukan = true;
                 tanggalPinjam = new Date();
 
                 System.out.println("\n______________________________________________");
-                System.out.println("\n           Buku pinjaman ke-" + (i + 1));
                 System.out.println(" Nama Peminjam              : " + namaPeminjam);
                 System.out.println(" Nama Buku                  : " + perpustakaan[i][0]);
                 System.out.println(" Nama Penulis               : " + perpustakaan[i][1]);
@@ -398,10 +391,20 @@ public class SistemPerpustakaan {
                 System.out.print("\nApakah Anda ingin meminjam buku lagi (y/n)? ");
                 String pinjamLagi = input.nextLine();
                 if (pinjamLagi.equalsIgnoreCase("n")) {
+                    meminjam = false;
                     menuAdmin();
+                    
                 }
-
+            
+        }
+    
+    
+            } if (!bukuDitemukan) {
+                System.out.println("Buku tidak ditemukan atau sedang tidak tersedia.");
+                menuAdmin();
             }
+            
+            
 
         }
     }
@@ -418,15 +421,18 @@ public class SistemPerpustakaan {
         System.out.print("\nMasukkan Nama Anda            : ");
         input.nextLine();
         nama = input.nextLine();
-
+        boolean bukuDitemukan = false;
         for (int i = 0; i < maxPinjam; i++) {
             System.out.print("\nMasukkan Kode Buku            : ");
             namaBuku = input.nextLine();
-            if (namaBuku.equalsIgnoreCase(perpustakaan[i][4])) {
+            if (namaBuku.equalsIgnoreCase(perpustakaan[i][4])&& !bukuTersedia[i]) {
+                bukuTersedia[i] = true;
                 meminjam = true;
                 valid = true;
             } else {
-                System.out.println("Buku tidak tersedia");
+                System.out.println("=====================");
+                System.out.println(" Buku tidak tersedia");
+                System.out.println("=====================");
                 meminjam = false;
                 valid = false;
                 menuAdmin();
@@ -437,11 +443,10 @@ public class SistemPerpustakaan {
                 tanggalPengembalian = new Date();
 
                 System.out.println("\n______________________________________________");
-                System.out.println("\n           Buku pinjaman ke-" + (i + 1));
                 System.out.println(" Nama Peminjam              : " + nama);
                 System.out.println(" Nama Buku                  : " + perpustakaan[i][0]);
                 System.out.println(" Nama Penulis               : " + perpustakaan[i][1]);
-                System.out.println(" Tanggal Peminjaman         : " + tanggalPengembalian);
+                System.out.println(" Tanggal Pengembalian       : " + tanggalPengembalian);
                 System.out.println("______________________________________________");
                 System.out.print("\nApakah Anda ingin mengembalikan buku lagi (y/n)? ");
                 String pinjamLagi = input.nextLine();
