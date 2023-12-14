@@ -147,21 +147,21 @@ public class SistemPerpustakaan {
         System.out.println("|                         Pangeran Diponegoro                         |");
         System.out.println("|__________________________________"+"___________________________________|");
         System.out.println("|                                  |"+"                                  |");
-        System.out.println("| 1. Katalog Buku                  |"+" 6. Form Keterlambatan            |");
+        System.out.println("| 1. Katalog Buku                  |"+" 6. Form Pembelian Buku           |");
         System.out.println("|__________________________________|"+"__________________________________|");
         System.out.println("|                                  |"+"                                  |");
-        System.out.println("| 2. Cari Buku                     |"+" 7. Form Pembelian Buku           |");
+        System.out.println("| 2. Cari Buku                     |"+" 7. Penambahan Buku               |");
         System.out.println("|__________________________________|"+"__________________________________|");
         System.out.println("|                                  |"+"                                  |");
-        System.out.println("| 3. Aturan Peminjaman dan         |"+" 8. Penambahan Buku               |");
+        System.out.println("| 3. Aturan Peminjaman dan         |"+" 8. Riwayat                       |");
         System.out.println("|    Pembelian                     |"+"                                  |");
         System.out.println("|__________________________________|"+"__________________________________|");
         System.out.println("|                                  |"+"                                  |");
-        System.out.println("| 4. Form Peminjaman               |"+" 9. Riwayat                       |");
+        System.out.println("| 4. Form Peminjaman               |"+" 9. Log Out                       |");
         System.out.println("|__________________________________|"+"__________________________________|");
-        System.out.println("|                                  |"+"                                  |");
-        System.out.println("| 5. Pengembalian Buku             |"+" 10. Log Out                      |");
-        System.out.println("|__________________________________|"+"__________________________________|");
+        System.out.println("|                                  |");
+        System.out.println("| 5. Pengembalian Buku             |");
+        System.out.println("|__________________________________|");
 
         System.out.print("\nPilih Menu : ");
         int pilihan = input.nextInt();
@@ -180,14 +180,13 @@ public class SistemPerpustakaan {
                 pengembalianBuku();
             case 6:
             case 7:
+            PenambahanBuku();
+                break;
             case 8:
-                PenambahanBuku();
+            Riwayat();
                 break;
             case 9:
-                Riwayat();
-                break;
-            case 10:
-                LogOut();
+            LogOut();
                 break;
             default:
                 System.out.println("Pilihan yang anda masukkan salah");
@@ -214,6 +213,7 @@ public class SistemPerpustakaan {
         System.out.println("| 5. Ilmu Pengetahuan  |");
         System.out.println("| 6. Purchasable       |");
         System.out.println("|______________________|");
+        
 
         System.out.print("\nMasukkan Kategori Buku (1/2/3/4/5/6): ");
         int kategori = input.nextInt();
@@ -221,20 +221,13 @@ public class SistemPerpustakaan {
             System.out.println("Kategori Tidak Tersedia");
         }else if(kategori > 0 && kategori < 7){
             if(jumlahBuku > 0){
+                System.out.printf("\n| %-25s | %-20s | %-15s | %-13s | %-15s | %-15s | %-17s |%n", "Judul", "Penulis", "Penerbit", "Tahun Terbit", "ISBN", "Jml Halaman", "Status");
+    System.out.println("|---------------------------|----------------------|-----------------|---------------|-----------------|-----------------|-------------------|");
                 for ( int i = 0; i <= jumlahBuku; i++) { 
                     switch (kategori){
                         case 1:
                         if(perpustakaan[i][6] == novel){          // Cara agar buku yang ditambahkan sesuai dengan kategori yang diinginkan atribut ke 6 adalah genre / kategori buku
-                            System.out.println("\n---------------------------------------");
-                            System.out.println(" Judul         : " + perpustakaan[i][0]);
-                            System.out.println(" Penulis       : " + perpustakaan[i][1]);
-                            System.out.println(" Penerbit      : " + perpustakaan[i][2]);
-                            System.out.println(" Tahun Terbit  : " + perpustakaan[i][3]);
-                            System.out.println(" ISBN          : " + perpustakaan[i][4]);
-                            System.out.println(" Jumlah halaman: " + perpustakaan[i][5]);
-                            System.out.println(" Genre         : " + perpustakaan[i][6]);
-                            System.out.println(" Status        : " + (bukuTersedia[i] ? "Tersedia" : "Tidak Tersedia"));
-                            System.out.println("---------------------------------------");
+                            System.out.printf("| %-25s | %-20s | %-15s | %-13s | %-15s | %-15s | %-17s |", perpustakaan[i][0], perpustakaan[i][1], perpustakaan[i][2], perpustakaan[i][3], perpustakaan[i][4], perpustakaan[i][5], (bukuTersedia[i] ? "Tersedia" : "Tidak Tersedia"));
                             System.out.println();
                         }
                         break;
