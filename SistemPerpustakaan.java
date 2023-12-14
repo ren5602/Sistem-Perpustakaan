@@ -184,6 +184,8 @@ public class SistemPerpustakaan {
                 PenambahanBuku();
                 break;
             case 9:
+                Riwayat();
+                break;
             case 10:
                 LogOut();
                 break;
@@ -602,6 +604,81 @@ public class SistemPerpustakaan {
         System.out.println("|  Tekan ENTER untuk kembali           |");
         System.out.println("|______________________________________|");
         input.nextLine(); // mengosongkan input agar dapat menjalankan fungsi menu admin
+    }
+    static void Riwayat(){
+        System.out.println("Menu riwayat");
+        System.out.println("1. Riwayat Penambahan Buku");
+        System.out.println("2. Riwayat Peminjaman Buku");
+        System.out.println("3. Riwayat Pengembalian Buku");
+        System.out.println("4. Riwayat Pembelian Buku");
+        System.out.println("5. Kembali ke Menu Utama");
+        System.out.print("Pilih Menu : ");
+        int pilihan = input.nextInt();
+        switch (pilihan) {
+            case 1:
+                RiwayatTambah();
+                break;
+            case 2:
+                RiwayatPeminjaman();
+                break;
+            case 3:
+                RiwayatPengembalian();
+                break;
+            case 4:
+                RiwayatPembelian();
+                break;
+            case 5:
+                menuAdmin();
+                break;
+        
+            default:
+                System.out.println("Pilihan tidak tersedia");
+                break;
+        }
+    }
+    static void RiwayatTambah(){
+        System.out.println("Riwayat Penambahan Buku");
+        for (int i = 0; i < maxBuku; i++) {
+            if (perpustakaan[i][0] != null && perpustakaan[i][7] != null) {
+                System.out.println("Buku ke-" + (i + 1));
+                System.out.println("Judul: " + perpustakaan[i][0]);
+                System.out.println("Penulis: " + perpustakaan[i][1]);
+                System.out.println("Penerbit: " + perpustakaan[i][2]);
+                System.out.println("Tahun Terbit: " + perpustakaan[i][3]);
+                System.out.println("ISBN: " + perpustakaan[i][4]);
+                System.out.println("Jumlah Halaman: " + perpustakaan[i][5]);
+                System.out.println("Genre Buku: " + perpustakaan[i][6]);
+                System.out.println("Harga Buku: " + perpustakaan[i][7]);
+                System.out.println("------------------------------");
+
+            }else if (perpustakaan[i][0] != null && !perpustakaan[i][0].isEmpty()) {
+                System.out.println("Buku ke-" + (i + 1));
+                System.out.println("Judul: " + perpustakaan[i][0]);
+                System.out.println("Penulis: " + perpustakaan[i][1]);
+                System.out.println("Penerbit: " + perpustakaan[i][2]);
+                System.out.println("Tahun Terbit: " + perpustakaan[i][3]);
+                System.out.println("ISBN: " + perpustakaan[i][4]);
+                System.out.println("Jumlah Halaman: " + perpustakaan[i][5]);
+                System.out.println("Genre Buku: " + perpustakaan[i][6]);
+                System.out.println("------------------------------");
+            }
+        }
+        System.out.println("\n ______________________________________");
+        System.out.println("|                                      |");
+        System.out.println("|  Tekan ENTER untuk kembali           |");
+        System.out.println("|______________________________________|");
+        input.nextLine();
+        input.nextLine();
+        Riwayat();
+    }
+    static void RiwayatPeminjaman(){
+
+    }
+    static void RiwayatPengembalian(){
+        
+    }
+    static void RiwayatPembelian(){
+        
     }
     static void LogOut(){
         System.out.println("\n_______________________________");
