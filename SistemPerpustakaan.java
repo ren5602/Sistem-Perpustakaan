@@ -22,6 +22,8 @@ public class SistemPerpustakaan {
 
     static String[][] riwayatPengembalian = new String[100][5];
     static int jumlahRiwayatPengembalian = 0;
+    static String[][] riwayatPembelian = new String[100][3];
+    static int jumlahRiwayatPembelian = 0;
 
  
 
@@ -670,7 +672,7 @@ public class SistemPerpustakaan {
         System.out.println("| 4. Riwayat Pembelian Buku        |");
         System.out.println("| 5. Kembali ke Menu Utama         |");
         System.out.println("|__________________________________|");
-        System.out.print("Pilih Menu (1/2/3/4/5/6): ");
+        System.out.print("Pilih Menu (1/2/3/4/5): ");
         int pilihan = input.nextInt();
 
         switch (pilihan) {
@@ -711,7 +713,7 @@ public class SistemPerpustakaan {
         System.out.println("|     Judul Buku      |       Penulis         |       Harga       |");
         System.out.println("|-----------------------------------------------------------------|");
         for (int i = 0; i < jumlahBuku; i++) {    
-       if (perpustakaan[i][6] == purchasable) 
+        if (perpustakaan[i][6] == purchasable) 
             System.out.printf("|    %-15s|   %-18s|   %-20s|\n",
                     perpustakaan[i][0], perpustakaan[i][1],
                     perpustakaan[i][7]);
@@ -735,6 +737,10 @@ public class SistemPerpustakaan {
                 String beli = input.nextLine();
                 found = true;
                 if (beli.equals("ya")) {
+                    riwayatPembelian[jumlahRiwayatPembelian][0] = perpustakaan[i][0];
+                    riwayatPembelian[jumlahRiwayatPembelian][1] = perpustakaan[i][1];
+                    riwayatPembelian[jumlahRiwayatPembelian][2] = perpustakaan[i][7];
+                    jumlahRiwayatPembelian++;
                     System.out.println("");
                     System.out.println("\n______________________________________________________");
                     System.out.println("|                                                    |");
@@ -855,8 +861,28 @@ public class SistemPerpustakaan {
         Riwayat();
     }
     static void RiwayatPembelian(){
-        
+        System.out.println("\n_______________________________________________");
+        System.out.println("|               Riwayat Pembelian               |");
+        System.out.println("|-----------------------------------------------|");
+        System.out.println("|     Judul Buku      |       Penulis         |");
+        System.out.println("|-----------------------------------------------|");
+
+        if (jumlahRiwayatPembelian == 0) {
+            System.out.println("|           Belum ada pembelian                 |");
+        } else {
+            for (int i = 0; i < jumlahRiwayatPembelian; i++) {
+                System.out.printf("|    %-15s|   %-18s|\n", riwayatPembelian[i][0], riwayatPembelian[i][1]);
+            }
+        }
+        System.out.println("\n ______________________________________");
+        System.out.println("|                                      |");
+        System.out.println("|  Tekan ENTER untuk kembali           |");
+        System.out.println("|______________________________________|");
+        input.nextLine();
+        input.nextLine();
+        Riwayat();
     }
+
     static void LogOut(){
         System.out.println("\n_______________________________");
         System.out.println("_______________________________");
